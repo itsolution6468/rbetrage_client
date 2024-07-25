@@ -91,12 +91,12 @@ function Footer() {
 								<LinkedInIcon />
 							</IconButton>
 						</Link>
-						<Link href={`mailto:${constants.siteData.reddit}`} target="_blank" rel="noreferrer noopener">
+						<Link href={constants.siteData.reddit} target="_blank" rel="noreferrer noopener">
 							<IconButton aria-label="network" sx={{ color: '#fff' }}>
 								<RedditIcon />
 							</IconButton>
 						</Link>
-						<Link href={constants.siteData.reddit} target="_blank" rel="noreferrer noopener">
+						<Link href={constants.siteData.tiktok} target="_blank" rel="noreferrer noopener">
 							<IconButton aria-label="network" sx={{ color: '#fff' }}>
 								<FontAwesomeIcon icon={faTiktok} size="sm" />
 							</IconButton>

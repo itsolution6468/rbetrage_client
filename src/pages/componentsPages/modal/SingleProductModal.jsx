@@ -21,7 +21,12 @@ function SingleProductModal({ openModal, setOpenModal, similarProducts, mainProd
 
 	return (
 		<Modal openModal={openModal} fnCloseModal={closeModal} padding>
-			<img src={mainProduct.imageUrl} alt="main_product" key={`product-${mainProduct.id}`} width="200px" />
+			<Stack direction='row'>
+				<img src={mainProduct.imageUrl} alt="main_product" key={`product-${mainProduct.id}`} width="200px" />
+				<Stack>
+					<Typography>{mainProduct?.title}</Typography>
+				</Stack>
+			</Stack>
 			<Stack gap={3}>
 				{similarProducts.map((product) => (
 					<Stack key={`product-${product.id}`}>

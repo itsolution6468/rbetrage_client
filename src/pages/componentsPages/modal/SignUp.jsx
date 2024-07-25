@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useNavigate, Link as RouterLink } from 'react-router-dom';
 import Modal from '@/components/modal';
 import { Stack, Typography, Divider, Box, Button, TextField, FormControlLabel, Link, Checkbox } from '@mui/material';
 
-import Google from '@/assets/icons/social-google.svg';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/firebase-config';
+import GoogleLoginButton from '@/components/GoogleLoginButton';
 
-const cookies = new Cookies();
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
 function SignUpModal({ openModal, setOpenModal }) {
@@ -27,35 +26,7 @@ function SignUpModal({ openModal, setOpenModal }) {
 					<LoginForm setOpenModal={setOpenModal} />
 
 					<Divider>OR</Divider>
-					<Button
-						disableElevation
-						fullWidth
-						variant="outlined"
-						sx={{
-							color: (theme) => (theme.palette.mode === 'dark' ? 'text.primary' : 'grey.700'),
-							backgroundColor: '#E9F2F4',
-							borderColor: 'border',
-						}}
-						to="/home"
-						component={RouterLink}
-					>
-						<Box
-							sx={{
-								mr: {
-									xs: 1,
-									sm: 2,
-								},
-								mt: 0,
-								backgroundColor: '#E9F2F4',
-							}}
-							width={16}
-							height={16}
-							component="img"
-							src={Google}
-							alt="google"
-						/>
-						Login with Google
-					</Button>
+					<GoogleLoginButton />
 				</Stack>
 			</Stack>
 		</Modal>
@@ -66,25 +37,38 @@ function LoginForm({ setOpenModal }) {
 	const [user, setUser] = useState({});
 
 	const handleSignup = async (e) => {
-		axios
-			.post(`${BACKEND_API}/auth/signUp`, {
-				name: user.name,
-				email: user.email,
-				password: user.password,
-			})
-			.then((res) => {
-				cookies.set('TOKEN', res.data.token, {
-					path: '/home',
-				});
-				setOpenModal(false);
-			})
-			.catch((err) => {
-				console.log('SignUp Error: ', err);
-			});
+		e.preventDefault();
+
+		if (!user.email || !user.password) {
+			console.error('Email and password are required.');
+			return;
+		}
+
+		try {
+			const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
+			const token = await userCredential.user.getIdToken();
+
+			const payloadHeader = {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+				},
+			};
+
+			const response = await axios.post(`${BACKEND_API}/auth/signUp`, { name: user.name, email: user.email, password: user.password }, payloadHeader);
+			const jwtToken = response.data.token;
+
+			localStorage.setItem('TOKEN', jwtToken);
+
+			setOpenModal(false);
+			window.location.reload();
+		} catch (error) {
+			console.error('Error during signup:', error.message);
+		}
 	};
 
 	return (
-		<Box component="form">
+		<Box component="form" onSubmit={handleSignup}>
 			<TextField
 				color="primary"
 				autoFocus
@@ -159,7 +143,7 @@ function LoginForm({ setOpenModal }) {
 				}}
 				variant="contained"
 				color="primary"
-				onClick={handleSignup}
+				type="submit"
 			>
 				Sign Up
 			</Button>

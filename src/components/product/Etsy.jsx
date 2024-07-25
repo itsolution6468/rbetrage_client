@@ -2,12 +2,13 @@ import axios from 'axios';
 import { Stack, Typography } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
-import { BACKEND_API } from '@/utils/constants';
+
+const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
 function EtsyProduct({ product, setOpenModal, setMainProduct, setSimilarProducts }) {
 	const handleSingleProduct = () => {
 		setMainProduct(product);
-		axios.post(`${BACKEND_API}/api/products/find-similar`, { product }).then((result) => {
+		axios.post(`${BACKEND_API}/products/find-similar`, { product }).then((result) => {
 			setSimilarProducts(result.data);
 		});
 		setOpenModal(true);

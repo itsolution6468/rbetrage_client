@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Stack, Typography, Button, TextField } from '@mui/material';
 import axios from 'axios';
+import { updatePassword } from "firebase/auth";
+import { auth } from "@/firebase-config";
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
@@ -18,8 +20,15 @@ function ResetPassword() {
 			return;
 		}
 		try {
-			await axios.post(`${BACKEND_API}/auth/reset-password`, { token, password });
-			setMessage('Password has been successfully reset.');
+			const user = auth.currentUser;
+			console.log(user)
+			if (user) {
+				await updatePassword(user, password);
+				console.log("Password updated successfully");
+				setMessage('Password has been successfully reset.');
+			} else {
+				console.error("No user is signed in.");
+			}
 		} catch (err) {
 			setError('Failed to reset password. Please try again.');
 		}

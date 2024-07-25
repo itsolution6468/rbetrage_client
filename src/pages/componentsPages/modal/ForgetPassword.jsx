@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Stack, Typography, Button, TextField } from '@mui/material';
 import Modal from '@/components/modal';
 import axios from 'axios';
+import { updatePassword } from "firebase/auth";
+import { auth } from "@/firebase-config";
+import { toast } from 'react-toastify';
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
@@ -28,11 +31,16 @@ function ForgetPasswordModal({ openModal, setOpenModal }) {
 	};
 
 	const handleSubmit = async () => {
+		const lowercaseEmail = email.toLowerCase();
+		await setEmail(lowercaseEmail);
+
 		try {
-			await axios.post(`${BACKEND_API}/auth/forgot-password`, { email });
+			await axios.post(`${BACKEND_API}/auth/forgot-password`, { email: lowercaseEmail });
 			setStep(2);
 		} catch (err) {
-			setError('Failed to send email. Please try again.');
+			toast.error("Failed to send email. Please try again.", {
+				autoClose: 3000,
+			});
 		}
 	};
 
@@ -41,12 +49,19 @@ function ForgetPasswordModal({ openModal, setOpenModal }) {
 		try {
 			const response = await axios.post(`${BACKEND_API}/auth/verify-code`, { email, code });
 			if (response.data.success) {
+				toast.success("Verification code sent successfully!", {
+					autoClose: 3000,
+				});
 				setStep(3);
 			} else {
-				setError('Invalid verification code.');
+				toast.error("Invalid verification code.", {
+					autoClose: 3000,
+				});
 			}
 		} catch (err) {
-			setError('Failed to verify code. Please try again.');
+			toast.error("Failed to verify code. Please try again.", {
+				autoClose: 3000,
+			});
 		}
 	};
 
@@ -56,11 +71,27 @@ function ForgetPasswordModal({ openModal, setOpenModal }) {
 			return;
 		}
 		try {
-			await axios.post(`${BACKEND_API}/auth/reset-password`, { email, password });
-			setStep(1); // Reset the step to start over
-			setOpenModal(false); // Optionally close the modal after reset
+			const user = auth.currentUser;
+			console.log(user)
+			if (user) {
+				await updatePassword(user, password);
+				toast.success("Password updated successfully!", {
+					autoClose: 3000,
+				});
+			} else {
+				toast.error("No user is signed in.", {
+					autoClose: 3000,
+				});
+			}
+			setStep(1);
+			setVerificationCode('');
+			setPassword('');
+			setConfirmPassword('');
 		} catch (err) {
-			setError('Failed to reset password. Please try again.');
+			toast.error("Failed to reset password. Please try again.", {
+				autoClose: 3000,
+			});
+
 		}
 	};
 

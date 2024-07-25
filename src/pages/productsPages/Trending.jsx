@@ -5,18 +5,19 @@ import { Grid, Stack } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import FacebookProduct from '@/components/product/Facebook';
 import axios from 'axios';
-import { BACKEND_API } from '@/utils/constants';
 import SingleProductModal from '../componentsPages/modal/SingleProductModal';
+
+const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
 function TrendingProductPage() {
 	const cookies = new Cookies();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (!cookies.get('TOKEN', { path: '/home' })) {
-			navigate('/home');
+		if (!localStorage.getItem('TOKEN')) {
+			navigate('home');
 		}
-	}, [cookies]);
+	}, []);
 
 	const [products, setProducts] = useState([]);
 	const [total, setTotal] = useState(0);
@@ -27,13 +28,13 @@ function TrendingProductPage() {
 	const [similarProducts, setSimilarProducts] = useState([]);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/api/products/total?market=Facebook`).then((res) => {
+		axios.get(`${BACKEND_API}/products/total?market=Facebook`).then((res) => {
 			setTotal(res.data);
 		});
 	}, []);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/api/products/?page=${page}&market=Facebook&perPage=${perPage}`).then((res) => {
+		axios.get(`${BACKEND_API}/products/?page=${page}&market=Facebook&perPage=${perPage}`).then((res) => {
 			setProducts(res.data);
 		});
 	}, [page]);

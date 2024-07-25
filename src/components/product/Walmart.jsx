@@ -1,13 +1,14 @@
 import axios from 'axios';
-import { BACKEND_API } from '@/utils/constants';
 import { Stack, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
+const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
+
 function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProduct }) {
 	const handleSingleProduct = () => {
 		setMainProduct(product);
-		axios.post(`${BACKEND_API}/api/products/find-similar`, { product }).then((result) => {
+		axios.post(`${BACKEND_API}/products/find-similar`, { product }).then((result) => {
 			setSimilarProducts(result.data);
 		});
 		setOpenModal(true);

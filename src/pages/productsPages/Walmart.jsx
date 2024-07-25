@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
-import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Grid, Stack } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import WalmartProduct from '@/components/product/Walmart';
 import SingleProductModal from '../componentsPages/modal/SingleProductModal';
-import { BACKEND_API } from '@/utils/constants';
+
+// Empty line here
+const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
 function WalmartProductPage() {
-	const cookies = new Cookies();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (!cookies.get('TOKEN', { path: '/home' })) {
-			navigate('/home');
+		if (!localStorage.getItem('TOKEN')) {
+			navigate('home');
 		}
-	}, [cookies]);
+	}, []);
 
 	const [products, setProducts] = useState([]);
 	const [total, setTotal] = useState(0);
@@ -27,13 +27,13 @@ function WalmartProductPage() {
 	const [similarProducts, setSimilarProducts] = useState([]);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/api/products/total?market=Walmart`).then((res) => {
+		axios.get(`${BACKEND_API}/products/total?market=Walmart`).then((res) => {
 			setTotal(res.data);
 		});
 	}, []);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/api/products?page=${page}&market=Walmart&perPage=${perPage}`).then((res) => {
+		axios.get(`${BACKEND_API}/products?page=${page}&market=Walmart&perPage=${perPage}`).then((res) => {
 			setProducts(res.data);
 		});
 	}, [page]);

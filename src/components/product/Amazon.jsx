@@ -1,13 +1,14 @@
 import axios from 'axios';
-import { BACKEND_API } from '@/utils/constants';
 import { Button, Stack, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import SearchIcon from '@mui/icons-material/Search';
 
+const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
+
 function AmazonProduct({ product, setOpenModal, setSimilarProducts, setMainProduct }) {
 	const handleSingleProduct = () => {
 		setMainProduct(product);
-		axios.post(`${BACKEND_API}/api/products/find-similar`, { product }).then((result) => {
+		axios.post(`${BACKEND_API}/products/find-similar`, { product }).then((result) => {
 			setSimilarProducts(result.data);
 		});
 		setOpenModal(true);

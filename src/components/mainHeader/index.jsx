@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import Fade from '@mui/material/Fade';
 import { Box, Stack, Container, Button, IconButton, useMediaQuery, Typography } from '@mui/material';
@@ -70,7 +69,6 @@ function MobileNavbar({ isMobile, navigate }) {
 }
 
 function MainHeader() {
-	const cookies = new Cookies();
 	const navigate = useNavigate();
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -81,8 +79,17 @@ function MainHeader() {
 	const [showSignUpModal, setShowSignUpModal] = useState(false);
 	const [showSignInModal, setShowSignInModal] = useState(false);
 	const [showForgetPasswordModal, setShowForgetPasswordModal] = useState(false);
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-	const isAuthenticated = !!cookies.get('TOKEN', { path: '/home' });
+	useEffect(
+		() => {
+			if (localStorage.getItem("TOKEN")) {
+				setIsAuthenticated(true)
+			} else {
+				setIsAuthenticated(false);
+			}
+		}, []
+	);
 
 	const toggleMenu = () => {
 		setMenuOpen((prevOpen) => !prevOpen);
@@ -106,7 +113,7 @@ function MainHeader() {
 	}, [menuOpen]);
 
 	return (
-		<Box bgcolor="background.paper" component="header" py={1.5} zIndex={14000}>
+		<Box bgcolor="background.paper" component="header" py={1.5} zIndex={10}>
 			<Stack
 				component={Container}
 				maxWidth="lg"
@@ -174,7 +181,7 @@ function MainHeader() {
 						<Navbar navItems={navItems} />
 						<SearchBar />
 						{isAuthenticated ? (
-							<LoggedUser />
+							<LoggedUser setIsAuthenticated={setIsAuthenticated} />
 						) : (
 							<Stack
 								sx={{
@@ -232,6 +239,7 @@ function MainHeader() {
 				openModal={showSignInModal}
 				setOpenModal={setShowSignInModal}
 				setShowForgetPasswordModal={setShowForgetPasswordModal}
+				setIsAuthenticated={setIsAuthenticated}
 			/>
 			<SignUpModal openModal={showSignUpModal} setOpenModal={setShowSignUpModal} />
 			<ForgetPasswordModal openModal={showForgetPasswordModal} setOpenModal={setShowForgetPasswordModal} />

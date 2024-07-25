@@ -1,22 +1,21 @@
 import { useEffect, useState } from 'react';
-import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Grid, Stack, Typography } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import AmazonProduct from '@/components/product/Amazon';
-import { BACKEND_API } from '@/utils/constants';
 import SingleProductModal from '../componentsPages/modal/SingleProductModal';
 
+const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
+
 function AmazonProductPage() {
-	const cookies = new Cookies();
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (!cookies.get('TOKEN', { path: '/home' })) {
-			navigate('/home');
+		if (!localStorage.getItem('TOKEN')) {
+			navigate('home');
 		}
-	}, [cookies]);
+	}, []);
 
 	const [products, setProducts] = useState([]);
 	const [total, setTotal] = useState(0);
@@ -27,13 +26,13 @@ function AmazonProductPage() {
 	const [similarProducts, setSimilarProducts] = useState([]);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/api/products/total?market=Amazon`).then((res) => {
+		axios.get(`${BACKEND_API}/products/total?market=Amazon`).then((res) => {
 			setTotal(res.data);
 		});
 	}, []);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/api/products?page=${page}&market=Amazon&perPage=${perPage}`).then((res) => {
+		axios.get(`${BACKEND_API}/products?page=${page}&market=Amazon&perPage=${perPage}`).then((res) => {
 			setProducts(res.data);
 		});
 	}, [page]);

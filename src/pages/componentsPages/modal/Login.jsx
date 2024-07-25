@@ -1,21 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import Modal from '@/components/modal';
 import { Stack, Typography, Divider, Box, Button, TextField, InputAdornment, Link, IconButton } from '@mui/material';
 
-import Google from '@/assets/icons/social-google.svg';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/firebase-config';
+import { toast } from 'react-toastify';
 
 // Icons
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import GoogleLoginButton from '@/components/GoogleLoginButton';
 
-const cookies = new Cookies();
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
-function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal }) {
+function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal, setIsAuthenticated }) {
 	const closeModal = () => {
 		setOpenModal(false);
 	};
@@ -29,38 +30,13 @@ function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal }) {
 			>
 				<Typography variant="h2">Sign In</Typography>
 				<Stack spacing={2}>
-					<LoginForm setOpenModal={setOpenModal} setShowForgetPasswordModal={setShowForgetPasswordModal} />
-
+					<LoginForm
+						setOpenModal={setOpenModal}
+						setShowForgetPasswordModal={setShowForgetPasswordModal}
+						setIsAuthenticated={setIsAuthenticated}
+					/>
 					<Divider>OR</Divider>
-					<Button
-						disableElevation
-						fullWidth
-						variant="outlined"
-						sx={{
-							color: (theme) => (theme.palette.mode === 'dark' ? 'text.primary' : 'grey.700'),
-							backgroundColor: '#E9F2F4',
-							borderColor: 'border',
-						}}
-						to="/home"
-						component={RouterLink}
-					>
-						<Box
-							sx={{
-								mr: {
-									xs: 1,
-									sm: 2,
-								},
-								mt: 0,
-								backgroundColor: '#E9F2F4',
-							}}
-							width={16}
-							height={16}
-							component="img"
-							src={Google}
-							alt="google"
-						/>
-						Login with Google
-					</Button>
+					<GoogleLoginButton />
 					<Typography>
 						No account yet?{' '}
 						<Link to="/auth/signup" variant="body2" component={RouterLink}>
@@ -73,26 +49,45 @@ function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal }) {
 	);
 }
 
-function LoginForm({ setOpenModal, setShowForgetPasswordModal }) {
+function LoginForm({ setOpenModal, setShowForgetPasswordModal, setIsAuthenticated }) {
 	const [showPassword, setShowPassword] = useState(false);
 	const [user, setUser] = useState({});
 
 	const handleLogIn = async () => {
-		axios
-			.post(`${BACKEND_API}/auth/signIn`, {
-				email: user.email,
-				password: user.password,
-			})
-			.then((res) => {
-				cookies.set('TOKEN', res.data.token, {
-					path: '/home',
-				});
-				setOpenModal(false);
-			})
-			.catch((err) => {
-				console.log('Login error: ', err);
+		if (!user.email || !user.password) {
+			toast.error('Email and password are required.', {
+				autoClose: 3000, // Set to 3000ms (5 seconds)
 			});
+			return;
+		}
+
+		try {
+			const userCredential = await signInWithEmailAndPassword(auth, user.email, user.password);
+			const token = await userCredential.user.getIdToken();
+
+			const payloadHeader = {
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`,
+				},
+			};
+
+			const response = await axios.post(`${BACKEND_API}/auth/signIn`, {}, payloadHeader);
+			const jwtToken = response.data.token;
+
+			localStorage.setItem('TOKEN', jwtToken);
+
+			setOpenModal(false);
+			toast.success('Logged in successfully!', {
+				autoClose: 3000,
+			});
+		} catch (error) {
+			toast.error(`Login error: ${error.message}`, {
+				autoClose: 3000,
+			});
+		}
 	};
+
 	return (
 		<Box component="form">
 			<TextField
@@ -127,11 +122,7 @@ function LoginForm({ setOpenModal, setShowForgetPasswordModal }) {
 						</InputAdornment>
 					),
 					endAdornment: (
-						<IconButton
-							onClick={() => {
-								setShowPassword(!showPassword);
-							}}
-						>
+						<IconButton onClick={() => setShowPassword(!showPassword)}>
 							<RemoveRedEyeIcon />
 						</IconButton>
 					),
@@ -166,7 +157,7 @@ function LoginForm({ setOpenModal, setShowForgetPasswordModal }) {
 					justifyContent: 'center',
 					mt: 2,
 					color: '#193D34',
-					' &:not(:disabled)': {
+					'&:not(:disabled)': {
 						background: `#B0D46D !important`,
 						boxShadow: 'none',
 					},

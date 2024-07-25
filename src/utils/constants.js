@@ -10,13 +10,13 @@ export default {
 	siteData: {
 		siteUrl: 'https://rbetraj.com/',
 		siteRepo: 'https://github.com/cyberstar9091/rbetrage-frontend',
-		facebook: 'https://www.facebook.com/rbetraj/',
-		instagram: 'https://www.instagram.com/rbetraj.com/',
-		linkedin: 'https://www.linkedin.com/company/rbetraj/',
-		youtube: 'https://www.youtube.com/@rbetraj/',
-		x: 'https://www.x.com/rbetraj/',
-		tiktok: 'https://www.tiktok.com/@rbetraj/',
-		reddit: 'https://www.reddit.com/@rbetraj/',
+		facebook: 'https://www.facebook.com/rbetrage/',
+		instagram: 'https://www.instagram.com/rbetrage/',
+		linkedin: 'https://www.linkedin.com/company/rbetrage/',
+		youtube: 'https://www.youtube.com/@Rbetrage_io/',
+		x: 'https://x.com/rbetrage/',
+		tiktok: 'https://www.tiktok.com/@rbetrage/',
+		reddit: 'https://www.reddit.com/user/Rbetrage/',
 	},
 };
 

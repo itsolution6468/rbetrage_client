@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { alpha } from '@mui/material/styles';
 // MUI
@@ -26,18 +26,18 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
 import TaskOutlinedIcon from '@mui/icons-material/TaskOutlined';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
-// assets
-import avatar2 from '@/assets/images/avatars/avatar_13.jpg';
 
 // Components
 import NotificationsButton from './notificationButton';
+import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 
-import Cookies from 'universal-cookie';
+const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
-const cookies = new Cookies();
-
-function LoggedUser() {
+function LoggedUser({ setIsAuthenticated }) {
 	const [anchorEl, setAnchorEl] = useState(null);
+	const [user, setUser] = useState({});
+
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -45,6 +45,26 @@ function LoggedUser() {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+
+	useEffect(() => {
+		console.log(jwtDecode(localStorage?.TOKEN))
+		const id = jwtDecode(localStorage?.TOKEN)?.id;
+
+		console.log('id is', id)
+
+		axios
+			.get(`${BACKEND_API}/auth`, {
+				params: { id }
+			})
+			.then(res => {
+				setUser(res.data.user);
+				console.log(res.data.user)
+			})
+			.catch(err => {
+				console.log('Getting User Error', err);
+			});
+	}, []);
+
 	return (
 		<>
 			<Menu
@@ -66,7 +86,7 @@ function LoggedUser() {
 				open={Boolean(anchorEl)}
 				onClose={handleClose}
 			>
-				<UserMenu handleClose={handleClose} />
+				<UserMenu handleClose={handleClose} setIsAuthenticated={setIsAuthenticated} user={user} />
 			</Menu>
 			<Stack height="100%" direction="row" flex={1} justifyContent="flex-end" alignItems="center" spacing={0}>
 				<NotificationsButton />
@@ -98,7 +118,7 @@ function LoggedUser() {
 					<Stack width="100%" direction="row" justifyContent="space-between" alignItems="center" spacing={1}>
 						<Avatar
 							alt="User Img"
-							src={avatar2}
+							src={user?.avatar}
 							sx={{
 								width: 35,
 								height: 35,
@@ -113,7 +133,7 @@ function LoggedUser() {
 								sm: 'inline-block',
 							}}
 						>
-							Elizabeth
+							{user?.name}
 						</Typography>
 						<ExpandMoreIcon
 							fontSize="small"
@@ -129,10 +149,11 @@ function LoggedUser() {
 	);
 }
 
-function UserMenu({ handleClose }) {
+function UserMenu({ handleClose, setIsAuthenticated, user }) {
 	const handleLogout = () => {
-		cookies.remove('TOKEN', { path: '/home' });
-		window.location.href = '/home';
+		localStorage.removeItem("TOKEN");
+		setIsAuthenticated(false);
+		handleClose();
 	};
 
 	return (
@@ -146,10 +167,7 @@ function UserMenu({ handleClose }) {
 		>
 			<Stack px={3}>
 				<Typography variant="subtitle1" textAlign="center">
-					Elizabeth Lumaad Olsen
-				</Typography>
-				<Typography variant="subtitle2" textAlign="center">
-					Executive Director
+					{user?.name}
 				</Typography>
 			</Stack>
 			<Divider
@@ -207,12 +225,6 @@ function UserMenu({ handleClose }) {
 					<PaymentOutlinedIcon fontSize="small" />
 				</ListItemIcon>
 				Payments
-			</MenuItem>
-			<MenuItem onClick={handleClose} to="/" component={RouterLink}>
-				<ListItemIcon>
-					<SummarizeOutlinedIcon fontSize="small" />
-				</ListItemIcon>
-				Projects
 			</MenuItem>
 			<Divider
 				sx={{

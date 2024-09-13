@@ -33,7 +33,11 @@ const NAV_LINKS_CONFIG = [
 		menuChildren: [
 			{
 				title: 'Facebook',
-				href: '/trending',
+				href: '/trending/facebook',
+			},
+			{
+				title: 'Google',
+				href: '/trending/google',
 			},
 		],
 	},

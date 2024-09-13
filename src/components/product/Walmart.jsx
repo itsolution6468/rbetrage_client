@@ -1,14 +1,15 @@
 import axios from 'axios';
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography, Button } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import SearchIcon from '@mui/icons-material/Search';
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
 function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProduct }) {
 	const handleSingleProduct = () => {
 		setMainProduct(product);
-		axios.post(`${BACKEND_API}/products/find-similar`, { product }).then((result) => {
+		axios.post(`${BACKEND_API}/products/similar_products`, { product }).then((result) => {
 			setSimilarProducts(result.data);
 		});
 		setOpenModal(true);
@@ -86,6 +87,19 @@ function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProd
 					''
 				)}
 			</Stack>
+			<Button
+				variant="contained"
+				startIcon={<SearchIcon />}
+				sx={{
+					marginTop: '10px',
+					backgroundColor: '#B0D46D !important',
+					color: '#193D34',
+					boxShadow: 'none',
+					borderRadius: '10px',
+				}}
+			>
+				View Product Analysis
+			</Button>
 		</Stack>
 	);
 }

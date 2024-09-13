@@ -13,7 +13,7 @@ function EtsyProductPage() {
 
 	useEffect(() => {
 		if (!localStorage.getItem('TOKEN')) {
-			navigate('home');
+			navigate('/home');
 		}
 	}, []);
 

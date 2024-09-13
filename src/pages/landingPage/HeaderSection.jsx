@@ -7,9 +7,9 @@ function HeaderSection() {
 			sx={{
 				justifyContent: 'center',
 				display: 'flex',
-				backgroundImage: `url(${backgroundImage})`, // Corrected line
-				backgroundSize: 'cover', // Add this to ensure the image covers the area
-				backgroundPosition: 'center', // Optional: centers the image
+				backgroundImage: `url(${backgroundImage})`,
+				backgroundSize: 'cover',
+				backgroundPosition: 'center',
 				color: 'white',
 				width: '100%',
 				height: '160px',

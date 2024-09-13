@@ -66,14 +66,8 @@ function Modal(props) {
 function UnderlineBox({ title, fnCloseModal }) {
 	return (
 		<Box top={0} zIndex={9999} position="sticky">
-			<Stack direction="row" alignItems="center" height={50} bgcolor="background.paper" px={1}>
-				<Box width="33%" height="80%">
-					<Box component="img" height="100%" py={1} ml={1} src={logo} alt="logo" />
-				</Box>
-				<Box width="34%">
-					<ModalText text={title} />
-				</Box>
-				<Box width="33%">
+			<Stack direction="row" alignItems="center" height={50} px={1}>
+				<Box width="100%">
 					<CloseButton fnCloseModal={fnCloseModal} />
 				</Box>
 			</Stack>
@@ -85,15 +79,9 @@ function UnderlineBox({ title, fnCloseModal }) {
 function ContainedBox({ title, fnCloseModal }) {
 	return (
 		<Box top="0" position="sticky" zIndex={9999}>
-			<Stack direction="row" alignItems="center" height={50} bgcolor="primary.main">
-				<Box width="33%" height="100%">
-					<Box component="img" height="100%" py={1} ml={1} src={logo} alt="logo" />
-				</Box>
-				<Box width="34%">
-					<ModalText text={title} color="primary.contrastText" />
-				</Box>
-				<Box width="33%">
-					<CloseButton fnCloseModal={fnCloseModal} color={(theme) => theme?.palette?.primary?.contrastText} />
+			<Stack direction="row" alignItems="center" height={50} >
+				<Box width="100%">
+					<CloseButton fnCloseModal={fnCloseModal} color='#193D34' />
 				</Box>
 			</Stack>
 		</Box>

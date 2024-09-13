@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -6,9 +8,22 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 
 function SearchBar({ isMobile }) {
+
+	const [searchProduct, setSearchProduct] = useState('');
+	const navigate = useNavigate();
+
+	const handleSearch = () => {
+		navigate(`/products/filter?search=${searchProduct}`);
+	}
+
+	const handleKeyDown = (event) => {
+		if (event.keyCode === 13) {
+			navigate(`/products/filter?search=${searchProduct}`);
+		}
+	};
+
 	return (
 		<Stack
-			component="form"
 			display={{
 				md: 'inline-block',
 			}}
@@ -27,6 +42,7 @@ function SearchBar({ isMobile }) {
 									borderRadius: '0px',
 									color: !isMobile ? '#B0D46D' : '#193D34',
 								}}
+								onClick={handleSearch}
 							>
 								<SearchIcon />
 							</IconButton>
@@ -53,6 +69,8 @@ function SearchBar({ isMobile }) {
 				}}
 				placeholder="Search Product"
 				variant="outlined"
+				onChange={e => setSearchProduct(e.target.value)}
+				onKeyDown={e => handleKeyDown(e)}
 				fullWidth
 			/>
 		</Stack>

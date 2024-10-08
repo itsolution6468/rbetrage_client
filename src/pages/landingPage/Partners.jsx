@@ -34,8 +34,6 @@ function Partners() {
 				disableOnInteraction: false,
 			}}
 			loop="true"
-			onSwiper={(swiper) => console.log(swiper)}
-			onSlideChange={() => console.log('slide change')}
 		>
 			<SwiperSlide style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 				<img src={amazonLogo} alt="amazon_logo" />

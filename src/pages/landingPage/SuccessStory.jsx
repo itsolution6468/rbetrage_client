@@ -50,8 +50,6 @@ function SuccessStory() {
 				spaceBetween={10}
 				slidesPerView={1}
 				navigation={!isMobile}
-				onSwiper={(swiper) => console.log(swiper)}
-				onSlideChange={() => console.log('slide change')}
 			>
 				{stories.map((story, index) => (
 					<SwiperSlide key={`story-${index}`}>

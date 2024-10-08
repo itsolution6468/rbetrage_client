@@ -69,8 +69,6 @@ function WinningProducts() {
 						slidesPerView: 4,
 					},
 				}}
-				onSwiper={(swiper) => console.log(swiper)}
-				onSlideChange={() => console.log('slide change')}
 			>
 				{winningProducts.map((data, index) => (
 					<SwiperSlide

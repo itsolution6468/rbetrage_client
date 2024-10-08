@@ -21,10 +21,8 @@ function ResetPassword() {
 		}
 		try {
 			const user = auth.currentUser;
-			console.log(user)
 			if (user) {
 				await updatePassword(user, password);
-				console.log("Password updated successfully");
 				setMessage('Password has been successfully reset.');
 			} else {
 				console.error("No user is signed in.");

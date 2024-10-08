@@ -6,7 +6,6 @@ import AlertTitle from '@mui/material/AlertTitle';
 
 function MuiSnackbar(props) {
 	const { message, severity, title, sx, alertProps } = props;
-	console.log(props);
 	return (
 		<Alert severity={severity} sx={{ boxShadow: 27, ...sx }} {...alertProps}>
 			<AlertTitle>{title}</AlertTitle>

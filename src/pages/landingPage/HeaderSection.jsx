@@ -16,16 +16,7 @@ function HeaderSection() {
 				borderRadius: '10px',
 			}}
 		>
-			<h1
-				style={{
-					textAlign: 'center',
-					maxWidth: '500px',
-					marginLeft: 'auto',
-					marginRight: 'auto',
-					letterSpacing: '1px',
-					fontWeight: '400',
-				}}
-			>
+			<h1 style={{ fontWeight: '400', letterSpacing: '1px' }}>
 				The Rbetrage Dropshipping Software for
 				<span
 					style={{

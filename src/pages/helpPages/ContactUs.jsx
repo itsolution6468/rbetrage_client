@@ -35,19 +35,7 @@ function ContactUsPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1
-						style={{
-							textAlign: 'center',
-							maxWidth: '500px',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							letterSpacing: '2px',
-							fontWeight: '800',
-							fontSize: '30px',
-						}}
-					>
-						Welcome to Rbetrage Support
-					</h1>
+					<h1>Welcome to Rbetrage Support</h1>
 				</Stack>
 				<ContactForm />
 			</Box>

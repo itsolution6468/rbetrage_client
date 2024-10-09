@@ -61,19 +61,7 @@ function SuccessStoryPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1
-						style={{
-							textAlign: 'center',
-							maxWidth: '500px',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							letterSpacing: '2px',
-							fontWeight: '800',
-							fontSize: '30px',
-						}}
-					>
-						Success Story
-					</h1>
+					<h1>Success Story</h1>
 				</Stack>
 				{cardContents.map((card, index) => (
 					<ImageCard key={`card-${index}`} data={card} order={index + 1} />

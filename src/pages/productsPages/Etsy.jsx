@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Grid, Stack, Typography } from '@mui/material';
+import { Grid, Stack, Typography, Box } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import EtsyProduct from '@/components/product/Etsy';
 import SingleProductModal from '../componentsPages/modal/SingleProductModal';
+
+import backgroundImage from '@/assets/images/header/banner_light.png';
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
@@ -42,44 +44,67 @@ function EtsyProductPage() {
 	};
 
 	return (
-		<Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} gap={3}>
-			{products.length ?
-				<>
-					<Stack
-						sx={{
-							marginTop: '30px',
-							backgroundColor: '#E9F2F4',
-							borderRadius: '10px',
-						}}
-						py={3}
-						px={5}
-					>
-						<Grid container spacing={2}>
-							{products.map((product, index) => (
-								<Grid item xs={12} sm={6} md={4} lg={3} key={`product-${index}`}>
-									<EtsyProduct
-										product={product}
-										setOpenModal={setOpenModal}
-										setSimilarProducts={setSimilarProducts}
-										setMainProduct={setMainProduct}
-									/>
-								</Grid>
-							))}
-						</Grid>
-					</Stack>
-					<Stack spacing={2}>
-						<Pagination count={Math.round(total / perPage)} page={page} onChange={handleChange} size="large" />
-					</Stack>
-					<SingleProductModal
-						openModal={openModal}
-						setOpenModal={setOpenModal}
-						similarProducts={similarProducts}
-						mainProduct={mainProduct}
-					/>
-				</> : (
+		<Box>
+			<Stack
+				sx={{
+					justifyContent: 'center',
+					display: 'flex',
+					backgroundImage: `url(${backgroundImage})`,
+					backgroundSize: 'cover',
+					backgroundPosition: 'center',
+					color: '#193D34',
+					width: '100%',
+					height: '160px',
+					borderRadius: '10px',
+				}}
+			>
+				<h1>Etsy Products</h1>
+			</Stack>
+			<Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} gap={3}>
+				{products.length ? (
+					<>
+						<Stack
+							sx={{
+								marginTop: '30px',
+								backgroundColor: '#E9F2F4',
+								borderRadius: '10px',
+							}}
+							py={3}
+							px={5}
+						>
+							<Grid container spacing={2}>
+								{products.map((product, index) => (
+									<Grid item xs={12} sm={6} md={4} lg={3} key={`product-${index}`}>
+										<EtsyProduct
+											product={product}
+											setOpenModal={setOpenModal}
+											setSimilarProducts={setSimilarProducts}
+											setMainProduct={setMainProduct}
+										/>
+									</Grid>
+								))}
+							</Grid>
+						</Stack>
+						<Stack spacing={2}>
+							<Pagination
+								count={Math.round(total / perPage)}
+								page={page}
+								onChange={handleChange}
+								size="large"
+							/>
+						</Stack>
+						<SingleProductModal
+							openModal={openModal}
+							setOpenModal={setOpenModal}
+							similarProducts={similarProducts}
+							mainProduct={mainProduct}
+						/>
+					</>
+				) : (
 					<Typography>No Products</Typography>
 				)}
-		</Stack>
+			</Stack>
+		</Box>
 	);
 }
 

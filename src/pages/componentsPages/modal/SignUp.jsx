@@ -113,7 +113,7 @@ function LoginForm({ setOpenModal }) {
 					<Typography sx={{ fontSize: '15px' }}>
 						I agree to the
 						<Link
-							href="/terms_and_conditions"
+							href="/terms"
 							target="_blank"
 							rel="noopener noreferrer"
 							sx={{ textDecoration: 'none' }}

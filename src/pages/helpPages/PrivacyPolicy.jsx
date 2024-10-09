@@ -26,19 +26,7 @@ function PrivacyPolicyPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1
-						style={{
-							textAlign: 'center',
-							maxWidth: '400px',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							letterSpacing: '2px',
-							fontWeight: '800',
-							fontSize: '30px',
-						}}
-					>
-						Privacy Policy of AI Tech Solutions Ltd
-					</h1>
+					<h1 style={{ fontSize: '30px' }}>Privacy Policy of AI Tech Solutions Ltd</h1>
 				</Stack>
 				<Stack
 					sx={{

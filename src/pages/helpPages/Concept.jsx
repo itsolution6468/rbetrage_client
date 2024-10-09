@@ -26,19 +26,7 @@ function ConceptPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1
-						style={{
-							textAlign: 'center',
-							maxWidth: '500px',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							letterSpacing: '2px',
-							fontWeight: '800',
-							fontSize: '30px',
-						}}
-					>
-						Website Concept: Rbetrage
-					</h1>
+					<h1>Website Concept: Rbetrage</h1>
 				</Stack>
 				<Stack
 					sx={{
@@ -75,19 +63,7 @@ function ConceptPage() {
 						mb: '20px',
 					}}
 				>
-					<h1
-						style={{
-							textAlign: 'center',
-							maxWidth: '500px',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							letterSpacing: '2px',
-							fontWeight: '800',
-							fontSize: '30px',
-						}}
-					>
-						Performance Plan
-					</h1>
+					<h1>Performance Plan</h1>
 				</Stack>
 				<Stack
 					sx={{

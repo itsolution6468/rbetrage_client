@@ -26,19 +26,7 @@ function FaqPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1
-						style={{
-							textAlign: 'center',
-							maxWidth: '500px',
-							marginLeft: 'auto',
-							marginRight: 'auto',
-							letterSpacing: '2px',
-							fontWeight: '800',
-							fontSize: '30px',
-						}}
-					>
-						FAQ
-					</h1>
+					<h1 style={{ fontSize: '30px' }}>FAQ</h1>
 				</Stack>
 				<Stack
 					sx={{

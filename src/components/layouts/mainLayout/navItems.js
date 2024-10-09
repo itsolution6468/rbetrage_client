@@ -57,7 +57,7 @@ const NAV_LINKS_CONFIG = [
 			},
 			{
 				title: 'Terms and Conditions',
-				href: '/terms_and_conditions',
+				href: '/terms',
 			},
 		],
 	},

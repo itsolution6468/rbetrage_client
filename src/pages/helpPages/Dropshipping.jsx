@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import backgroundImage from '@/assets/images/header/banner_light.png';
 import { Box, Stack, Typography } from '@mui/material';
 import ImageCard from '@/components/ImageCard';
@@ -188,6 +189,12 @@ const contentsArr = [
 function DropshippingPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>Dropshipping Page | Rbetrage</title>
+				<meta name="description" content="Dropshipping page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/dropshipping" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import backgroundImage from '@/assets/images/header/banner_light.png';
 import { Box, Stack, Typography } from '@mui/material';
 import QACard from '@/components/QaCard';
@@ -6,6 +7,12 @@ import { termsAndConditionsArr } from '@/utils/constants';
 function TermsPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>Terms & Conditions Page | Rbetrage</title>
+				<meta name="description" content="Terms & Conditions page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/terms" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',

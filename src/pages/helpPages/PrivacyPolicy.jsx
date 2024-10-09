@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import backgroundImage from '@/assets/images/header/banner_light.png';
 import { Box, Stack, Typography } from '@mui/material';
 import QACard from '@/components/QaCard';
@@ -6,6 +7,12 @@ import { privacyPolicyArr } from '@/utils/constants';
 function PrivacyPolicyPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>Privacy Page | Rbetrage</title>
+				<meta name="description" content="Privacy page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/privacy" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',

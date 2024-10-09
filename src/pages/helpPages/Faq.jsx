@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import backgroundImage from '@/assets/images/header/banner_light.png';
 import QACard from '@/components/QaCard';
 import { Box, Stack } from '@mui/material';
@@ -6,6 +7,12 @@ import { faqArr } from '@/utils/constants';
 function FaqPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>FAQ Page | Rbetrage</title>
+				<meta name="description" content="FAQ page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/faq" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',

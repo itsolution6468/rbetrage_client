@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { Grid, Stack, Typography, Box } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
@@ -45,6 +46,12 @@ function EtsyProductPage() {
 
 	return (
 		<Box>
+			<Helmet>
+				<title>Etsy Products Page | Rbetrage</title>
+				<meta name="description" content="Etsy Products page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/products/etsy" />
+			</Helmet>
 			<Stack
 				sx={{
 					justifyContent: 'center',

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import { Grid, Stack, Box } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
@@ -46,6 +47,12 @@ function WalmartProductPage() {
 
 	return (
 		<Box>
+			<Helmet>
+				<title>Walmart Products Page | Rbetrage</title>
+				<meta name="description" content="Walmart Products page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/products/walmart" />
+			</Helmet>
 			<Stack
 				sx={{
 					justifyContent: 'center',

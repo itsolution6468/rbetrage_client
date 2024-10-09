@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Grid, Stack, Typography, Box } from '@mui/material';
@@ -45,6 +46,12 @@ function AmazonProductPage() {
 
 	return (
 		<Box>
+			<Helmet>
+				<title>Amazon Products Page | Rbetrage</title>
+				<meta name="description" content="Amazon Products page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/products/amazon" />
+			</Helmet>
 			<Stack
 				sx={{
 					justifyContent: 'center',

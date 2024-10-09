@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import {
 	Grid,
@@ -129,6 +130,12 @@ function FilteredProductPage() {
 
 	return (
 		<Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} gap={3}>
+			<Helmet>
+				<title>Search Products Page | Rbetrage</title>
+				<meta name="description" content="Search Products page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/products/filter" />
+			</Helmet>
 			<Stack
 				sx={{
 					justifyContent: 'center',

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 import { Grid, Stack, Box } from '@mui/material';
@@ -47,6 +48,12 @@ function GoogleTrendingProductPage() {
 
 	return (
 		<Box>
+			<Helmet>
+				<title>Google trends Page | Rbetrage</title>
+				<meta name="description" content="Google trends page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/trending/google" />
+			</Helmet>
 			<Stack
 				sx={{
 					justifyContent: 'center',

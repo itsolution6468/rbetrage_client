@@ -42,13 +42,7 @@ function WinningProducts() {
 				fontSize: '20px',
 			}}
 		>
-			<h2
-				style={{
-					textAlign: 'center',
-				}}
-			>
-				Find Winning Products
-			</h2>
+			<h2 className="landing-title-h2">Find Winning Products</h2>
 			<Swiper
 				spaceBetween={10}
 				breakpoints={{
@@ -71,10 +65,7 @@ function WinningProducts() {
 				}}
 			>
 				{winningProducts.map((data, index) => (
-					<SwiperSlide
-						key={`product-slide-${index}`}
-						style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-					>
+					<SwiperSlide key={`product-slide-${index}`} className="landing-swiper">
 						<Link to="/trending">
 							<img src={data.url} alt={`product-${data.title}`} />
 						</Link>

@@ -36,11 +36,7 @@ function ImageCard({ data, order }) {
 				<img
 					src={data.imageUrl}
 					alt="dropshipping"
-					style={{
-						maxWidth: '400px',
-						objectFit: 'contain',
-						marginBottom: isMobile ? '30px' : '0px',
-					}}
+					className='image-card'
 				/>
 			</Grid>
 

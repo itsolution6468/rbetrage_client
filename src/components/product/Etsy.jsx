@@ -28,7 +28,7 @@ function EtsyProduct({ product, setOpenModal, setMainProduct, setSimilarProducts
 			<img
 				src={product.imageUrl ? product.imageUrl : product.url}
 				alt={product.description}
-				style={{ objectFit: 'contain', height: '200px', cursor: 'pointer' }}
+				className="products-image"
 			/>
 			<Stack
 				sx={{
@@ -55,7 +55,7 @@ function EtsyProduct({ product, setOpenModal, setMainProduct, setSimilarProducts
 						marginBottom: '0px',
 					}}
 				>
-					<FavoriteIcon style={{ color: 'red' }} />
+					<FavoriteIcon className="favorite-icon" />
 					{product.other.favorites}
 				</Stack>
 				{product.price ? (
@@ -69,7 +69,7 @@ function EtsyProduct({ product, setOpenModal, setMainProduct, setSimilarProducts
 							marginBottom: '5px',
 						}}
 					>
-						<MonetizationOnIcon style={{ color: '#dbcf24' }} />
+						<MonetizationOnIcon className="monetization-icon" />
 						{product.price}
 					</Typography>
 				) : (

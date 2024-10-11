@@ -33,7 +33,7 @@ function FaqPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1 style={{ fontSize: '30px' }}>FAQ</h1>
+					<h1 className="other-page-h1">FAQ</h1>
 				</Stack>
 				<Stack
 					sx={{

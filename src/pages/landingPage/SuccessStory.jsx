@@ -45,12 +45,7 @@ function SuccessStory() {
 			<Typography variant="h2" component="h2" align="center" sx={{ paddingBottom: '30px' }}>
 				Success Story
 			</Typography>
-			<Swiper
-				modules={[Navigation]}
-				spaceBetween={10}
-				slidesPerView={1}
-				navigation={!isMobile}
-			>
+			<Swiper modules={[Navigation]} spaceBetween={10} slidesPerView={1} navigation={!isMobile}>
 				{stories.map((story, index) => (
 					<SwiperSlide key={`story-${index}`}>
 						<Story story={story} isMobile={isMobile} />

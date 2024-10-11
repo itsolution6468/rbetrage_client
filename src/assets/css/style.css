@@ -62,3 +62,74 @@ h1 {
 	letter-spacing: 2px;
 	font-weight: 800;
 }
+
+.landing-title-h1 {
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+.landing-title-h2 {
+	text-align: center;
+}
+
+.landing-title-span {
+	font-weight: 600;
+}
+
+.landing-swiper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.products-image {
+	object-fit: contain;
+	height: 200px;
+	cursor: pointer;
+}
+
+.image-card {
+	max-width: 400px;
+	object-fit: contain;
+	margin-bottom: 0px;
+}
+
+.grid-padding {
+	padding-left: 0px;
+}
+
+.footer-subscribe-btn {
+	background-color: #b0d46d;
+	color: #193d34;
+	font-weight: 500;
+}
+
+.favorite-icon {
+	color: red;
+}
+
+.monetization-icon {
+	color: #dbcf24;
+}
+
+.story-image {
+	position: absolute;
+	margin-left: 30px;
+	object-fit: contain;
+	border-radius: 10px;
+	transform: translateY(-5%);
+}
+
+.other-page-h1 {
+	font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+	.image-card {
+		margin-bottom: 30px;
+	}
+
+	.story-image {
+		transform: translateY(-40%) translateX(15%);
+	}
+}

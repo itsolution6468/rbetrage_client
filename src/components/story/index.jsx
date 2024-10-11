@@ -15,17 +15,7 @@ function Story({ story, isMobile }) {
 			mb={isMobile ? 0 : 3}
 			mt={isMobile ? 16 : 3}
 		>
-			<img
-				src={story.image}
-				alt={story.name}
-				style={{
-					position: 'absolute',
-					marginLeft: '30px',
-					objectFit: 'contain',
-					borderRadius: '10px',
-					transform: isMobile ? 'translateY(-40%) translateX(15%)' : 'translateY(-5%)',
-				}}
-			/>
+			<img src={story.image} alt={story.name} className="story-image" />
 
 			<Box
 				sx={{

@@ -28,7 +28,7 @@ function AmazonProduct({ product, setOpenModal, setSimilarProducts, setMainProdu
 			<img
 				src={product.imageUrl ? product.imageUrl : product.url}
 				alt={product.description}
-				style={{ objectFit: 'contain', height: '200px', cursor: 'pointer' }}
+				className="products-image"
 			/>
 			<Stack
 				sx={{

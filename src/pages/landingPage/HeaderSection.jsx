@@ -16,17 +16,9 @@ function HeaderSection() {
 				borderRadius: '10px',
 			}}
 		>
-			<h1 style={{ fontWeight: '400', letterSpacing: '1px' }}>
+			<h1 className="landing-title-h1">
 				The Rbetrage Dropshipping Software for
-				<span
-					style={{
-						fontSize: 'inherit',
-						fontWeight: '600',
-					}}
-				>
-					{' '}
-					Ecom Success
-				</span>
+				<span className="landing-title-span"> Ecom Success</span>
 			</h1>
 		</Stack>
 	);

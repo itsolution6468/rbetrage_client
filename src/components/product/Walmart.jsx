@@ -28,7 +28,7 @@ function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProd
 			<img
 				src={product.imageUrl ? product.imageUrl : product.url}
 				alt={product.description}
-				style={{ objectFit: 'contain', height: '200px', cursor: 'pointer' }}
+				className="products-image"
 			/>
 			<Stack
 				sx={{
@@ -80,7 +80,7 @@ function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProd
 							marginBottom: '5px',
 						}}
 					>
-						<MonetizationOnIcon style={{ color: '#dbcf24' }} />
+						<MonetizationOnIcon className="monetization-icon" />
 						{product.price}
 					</Typography>
 				) : (

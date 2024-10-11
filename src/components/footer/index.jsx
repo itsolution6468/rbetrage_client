@@ -29,14 +29,14 @@ function Footer() {
 		<Box bgcolor="#193D34" py={3}>
 			<Container maxWidth="lg" component={Stack} direction="column" spacing={5}>
 				<Grid container spacing={3} alignContent="center" justifyContent="center" alignItems="center">
-					<Grid item xs={12} sm={6} md={3} style={{ paddingLeft: '0px' }}>
+					<Grid item xs={12} sm={6} md={3} className="grid-padding">
 						<Box component="img" src={logo} alt="rbetrage logo" width="50%" sx={{ marginBottom: '10px' }} />
 						<Stack spacing={1} sx={{ maxWidth: '80%' }}>
 							<ContactLink text="info@rbetrage.com" />
 						</Stack>
 					</Grid>
 
-					<Grid item xs={12} sm={6} md={2} style={{ paddingLeft: '0px' }}>
+					<Grid item xs={12} sm={6} md={2} className="grid-padding">
 						<Stack spacing={1}>
 							<Typography variant="h6" my={1} sx={{ color: '#B0D46D' }}>
 								TERMS OF USE
@@ -46,7 +46,7 @@ function Footer() {
 							<FooterLink to="/terms" text="Terms and Conditions" />
 						</Stack>
 					</Grid>
-					<Grid item xs={12} sm={6} md={3} style={{ paddingLeft: '0px' }}>
+					<Grid item xs={12} sm={6} md={3} className="grid-padding">
 						<Stack spacing={1}>
 							<Typography variant="h6" my={1} sx={{ color: '#B0D46D' }}>
 								FAQ
@@ -57,7 +57,7 @@ function Footer() {
 						</Stack>
 					</Grid>
 
-					<Grid item xs={12} sm={6} md={4} style={{ paddingLeft: '0px' }}>
+					<Grid item xs={12} sm={6} md={4} className="grid-padding">
 						<Typography variant="h6" my={1} sx={{ color: '#B0D46D' }}>
 							JOIN US
 						</Typography>
@@ -112,7 +112,7 @@ function Footer() {
 											type="submit"
 											variant="contained"
 											disableElevation
-											style={{ backgroundColor: '#B0D46D', color: '#193D34', fontWeight: '500' }}
+											className="footer-subscribe-btn"
 										>
 											Subscribe
 										</Button>

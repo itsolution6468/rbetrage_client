@@ -33,7 +33,7 @@ function PrivacyPolicyPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1 style={{ fontSize: '30px' }}>Privacy Policy of AI Tech Solutions Ltd</h1>
+					<h1 className="other-page-h1">Privacy Policy of AI Tech Solutions Ltd</h1>
 				</Stack>
 				<Stack
 					sx={{

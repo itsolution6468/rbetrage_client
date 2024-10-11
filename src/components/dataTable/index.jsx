@@ -130,7 +130,7 @@ function EnhancedTable(props) {
 							.map((row, i) => render(row, i))}
 						{emptyRows > 0 && (
 							<TableRow
-								style={{
+								sx={{
 									height: (dense ? emptyRowsHeight.dense : emptyRowsHeight.default) * emptyRows,
 								}}
 							>

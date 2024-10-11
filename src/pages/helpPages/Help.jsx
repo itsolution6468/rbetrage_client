@@ -1,14 +1,14 @@
 import backgroundImage from '@/assets/images/header/banner_light.png';
 import { Box, Stack, Typography } from '@mui/material';
-import ImageCard from '@/components/ImageCard';
+// import ImageCard from '@/components/ImageCard';
 import image1 from '@/assets/images/help/1.png';
-import image2 from '@/assets/images/help/2.png';
-import image3 from '@/assets/images/help/3.png';
-import image4 from '@/assets/images/help/4.png';
-import image5 from '@/assets/images/help/5.png';
-import image6 from '@/assets/images/help/6.png';
-import image7 from '@/assets/images/help/7.png';
-import image8 from '@/assets/images/help/8.png';
+// import image2 from '@/assets/images/help/2.png';
+// import image3 from '@/assets/images/help/3.png';
+// import image4 from '@/assets/images/help/4.png';
+// import image5 from '@/assets/images/help/5.png';
+// import image6 from '@/assets/images/help/6.png';
+// import image7 from '@/assets/images/help/7.png';
+// import image8 from '@/assets/images/help/8.png';
 
 function HelpPage() {
 	return (

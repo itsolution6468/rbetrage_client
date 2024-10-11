@@ -7,6 +7,23 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
 function Partners() {
+	const imageList = [
+		{
+			src: amazonLogo,
+		},
+		{
+			src: alibabaLogo,
+		},
+		{
+			src: walmartLogo,
+		},
+		{
+			src: aliexpressLogo,
+		},
+		{
+			src: ebayLogo,
+		},
+	];
 	return (
 		<Swiper
 			modules={[Autoplay]}
@@ -35,21 +52,11 @@ function Partners() {
 			}}
 			loop="true"
 		>
-			<SwiperSlide style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<img src={amazonLogo} alt="amazon_logo" />
-			</SwiperSlide>
-			<SwiperSlide style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<img src={alibabaLogo} alt="alibaba_logo" />
-			</SwiperSlide>
-			<SwiperSlide style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<img src={walmartLogo} alt="walmart_logo" />
-			</SwiperSlide>
-			<SwiperSlide style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<img src={aliexpressLogo} alt="aliexpress_logo" />
-			</SwiperSlide>
-			<SwiperSlide style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-				<img src={ebayLogo} alt="ebay_logo" />
-			</SwiperSlide>
+			{imageList.map((item, index) => (
+				<SwiperSlide key={index} className="landing-swiper">
+					<img src={item.src} alt="amazon_logo" />
+				</SwiperSlide>
+			))}
 		</Swiper>
 	);
 }

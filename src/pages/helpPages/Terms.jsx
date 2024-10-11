@@ -33,7 +33,7 @@ function TermsPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1 style={{ fontSize: '30px' }}>TERMS & CONDITIONS of AI Tech Solutions Ltd</h1>
+					<h1 className="other-page-h1">TERMS & CONDITIONS of AI Tech Solutions Ltd</h1>
 				</Stack>
 				<Stack
 					sx={{

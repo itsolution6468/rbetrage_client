@@ -27,7 +27,7 @@ function FacebookProduct({ product, setOpenModal, setMainProduct, setSimilarProd
 			<img
 				src={product.imageUrl ? product.imageUrl : product.url}
 				alt={product.description}
-				style={{ objectFit: 'contain', height: '300px', cursor: 'pointer' }}
+				className="products-image"
 			/>
 			<Stack
 				sx={{

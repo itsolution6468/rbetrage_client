@@ -81,15 +81,15 @@ function MainHeader() {
 	const [showForgetPasswordModal, setShowForgetPasswordModal] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-	useEffect(
-		() => {
-			if (localStorage.getItem("TOKEN")) {
-				setIsAuthenticated(true)
-			} else {
-				setIsAuthenticated(false);
-			}
-		}, []
-	);
+	const token = localStorage.getItem('TOKEN');
+
+	useEffect(() => {
+		if (token) {
+			setIsAuthenticated(true);
+		} else {
+			setIsAuthenticated(false);
+		}
+	}, [token]);
 
 	const toggleMenu = () => {
 		setMenuOpen((prevOpen) => !prevOpen);

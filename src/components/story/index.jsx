@@ -7,7 +7,8 @@ function Story({ story, isMobile }) {
 			spacing={4}
 			sx={{
 				background: '#E9F2F4',
-				maxWidth: '800px',
+				maxWidth: '800px !important',
+				width: "100%",
 				marginLeft: 'auto',
 				marginRight: 'auto',
 			}}

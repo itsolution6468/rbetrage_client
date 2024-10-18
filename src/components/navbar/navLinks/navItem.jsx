@@ -12,7 +12,8 @@ export function NavItem({ Icon, title, showExpand = false, selected = false }) {
 		<Stack
 			width="100%"
 			direction="row"
-			p={2.5}
+			py={1}
+			px={2}
 			alignItems="center"
 			alignContent="center"
 			justifyContent="center"
@@ -24,7 +25,7 @@ export function NavItem({ Icon, title, showExpand = false, selected = false }) {
 					color: '#B0D46D',
 				},
 				backgroundColor: '#fff',
-				color: selected ? '#B0D46D' : '#000s',
+				color: selected ? '#000' : '#000',
 			}}
 		>
 			{/* {Icon && (

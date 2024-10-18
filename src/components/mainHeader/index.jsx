@@ -113,7 +113,7 @@ function MainHeader() {
 	}, [menuOpen]);
 
 	return (
-		<Box bgcolor="background.paper" component="header" py={1.5} zIndex={10}>
+		<Box bgcolor="background.paper" component="header" py={2.5} zIndex={10}>
 			<Stack
 				component={Container}
 				maxWidth="lg"

@@ -21,6 +21,7 @@ const FilteredProductPage = withLazyLoadably(lazy(() => import('@/pages/products
 const AmazonProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Amazon')));
 const EtsyProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Etsy')));
 const WalmartProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Walmart')));
+const AlibabaProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Alibaba')));
 const FacebookTrendingProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/trending/Facebook')));
 const GoogleTrendingProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/trending/Google')));
 const FaqPage = withLazyLoadably(lazy(() => import('@/pages/helpPages/Faq')));
@@ -47,6 +48,7 @@ function Router() {
 							<Route path="amazon" element={<AmazonProductPage />} />
 							<Route path="etsy" element={<EtsyProductPage />} />
 							<Route path="walmart" element={<WalmartProductPage />} />
+							<Route path="alibaba" element={<AlibabaProductPage />} />
 							<Route path="filter" element={<FilteredProductPage />} />
 						</Route>
 						<Route path="faq" element={<FaqPage />} />

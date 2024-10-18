@@ -1,6 +1,6 @@
 import backgroundImage from '@/assets/images/header/banner_light.png';
 import { Box, Stack } from '@mui/material';
-import ImageCard from '@/components/ImageCard';
+import StoryCard from '@/components/story/card';
 import image1 from '@/assets/images/success1.png';
 import image2 from '@/assets/images/success2.png';
 
@@ -64,7 +64,7 @@ function SuccessStoryPage() {
 					<h1>Success Story</h1>
 				</Stack>
 				{cardContents.map((card, index) => (
-					<ImageCard key={`card-${index}`} data={card} order={index + 1} />
+					<StoryCard key={`card-${index}`} data={card} order={index + 1} />
 				))}
 			</Box>
 		</Box>

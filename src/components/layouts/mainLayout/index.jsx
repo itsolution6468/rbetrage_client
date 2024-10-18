@@ -37,6 +37,9 @@ function MainLayout({ container = 'lg', pb = true }) {
 	const location = useLocation();
 	const { pageTransitions } = useSelector(selectThemeConfig);
 
+	console.log(pageTransitions);
+	
+
 	return (
 		<Box display="flex" minHeight="100vh" flexDirection="column">
 			<Header />

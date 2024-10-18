@@ -23,6 +23,18 @@ const NAV_LINKS_CONFIG = [
 				title: 'Walmart',
 				href: '/products/walmart',
 			},
+			{
+				title: 'Alibaba',
+				href: '/products/alibaba',
+			},
+			{
+				title: 'AliExpress',
+				href: '/products/ali-express',
+			},
+			{
+				title: 'Ebay',
+				href: '/products/ebay',
+			},
 		],
 	},
 	{
@@ -41,25 +53,37 @@ const NAV_LINKS_CONFIG = [
 			},
 		],
 	},
+	// {
+	// 	id: uuid(),
+	// 	type: 'group',
+	// 	title: 'Terms & Use',
+	// 	Icon: AccountCircleOutlinedIcon,
+	// 	menuChildren: [
+	// 		{
+	// 			title: 'Notice of Privacy',
+	// 			href: '/privacy',
+	// 		},
+	// 		{
+	// 			title: 'FAQ',
+	// 			href: '/faq',
+	// 		},
+	// 		{
+	// 			title: 'Terms and Conditions',
+	// 			href: '/terms',
+	// 		},
+	// 	],
+	// },
 	{
 		id: uuid(),
-		type: 'group',
-		title: 'Terms & Use',
-		Icon: AccountCircleOutlinedIcon,
-		menuChildren: [
-			{
-				title: 'Notice of Privacy',
-				href: '/privacy',
-			},
-			{
-				title: 'FAQ',
-				href: '/faq',
-			},
-			{
-				title: 'Terms and Conditions',
-				href: '/terms',
-			},
-		],
+		type: 'item',
+		title: 'Success Stories',
+		href: '/success_story'
+	},
+	{
+		id: uuid(),
+		type: 'item',
+		title: 'Blog',
+		href: '/blogs'
 	},
 ];
 

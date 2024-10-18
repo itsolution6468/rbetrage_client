@@ -51,9 +51,9 @@ function Footer() {
 							<Typography variant="h6" my={1} sx={{ color: '#B0D46D' }}>
 								FAQ
 							</Typography>
-							<FooterLink to="/faq" text="How to use Rbetrage?" />
-							<FooterLink to="/faq" text="What is the most trending product?" />
-							<FooterLink to="/faq" text="How can I get support?" />
+							<FooterLink to="/help" text="How to use Rbetrage?" />
+							<FooterLink to="/trending_products_guide" text="What is the most trending product?" />
+							<FooterLink to="/contact_us" text="How can I get support?" />
 						</Stack>
 					</Grid>
 
@@ -110,7 +110,7 @@ function Footer() {
 									endAdornment: (
 										<Button
 											type="submit"
-											variant="contained"
+											variant="text"
 											disableElevation
 											className="footer-subscribe-btn"
 										>
@@ -129,7 +129,7 @@ function Footer() {
 								sx={{
 									'& .MuiOutlinedInput-root': {
 										border: '1px solid #B0D46D',
-										borderRadius: 0,
+										borderRadius: '5px',
 										'& fieldset': {
 											borderColor: '#B0D46D',
 										},

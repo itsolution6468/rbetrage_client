@@ -99,9 +99,10 @@ h1 {
 }
 
 .footer-subscribe-btn {
-	background-color: #b0d46d;
+	background-color: #b0d46d !important;
 	color: #193d34;
 	font-weight: 500;
+	padding: 6px 25px;
 }
 
 .favorite-icon {
@@ -114,22 +115,33 @@ h1 {
 
 .story-image {
 	position: absolute;
-	margin-left: 30px;
+	margin-left: 20px !important;
 	object-fit: contain;
 	border-radius: 10px;
-	transform: translateY(-5%);
+	transform: translateY(-3%);
 }
 
 .other-page-h1 {
 	font-size: 30px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
 	.image-card {
 		margin-bottom: 30px;
 	}
 
 	.story-image {
-		transform: translateY(-40%) translateX(15%);
+		transform: translateY(-40%) translateX(10%);
 	}
+}
+
+@media screen and (max-width: 425px) {
+	.image-card {
+		max-width: 300px;
+	}
+}
+
+.swiper-slide {
+	display: flex !important;
+	align-items: center !important;
 }

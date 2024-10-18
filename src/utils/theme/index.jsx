@@ -25,11 +25,11 @@ const getTheme = () => {
 		breakpoints: {
 			values: {
 				xs: 0,
-				// smartphone
-				sp: 400,
-				sm: 600,
-				md: 900,
-				lg: 1200,
+				// // smartphone
+				sp: 426,
+				sm: 769,
+				md: 901,
+				lg: 1261,
 				xl: 1536,
 			},
 		},

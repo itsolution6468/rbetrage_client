@@ -33,7 +33,7 @@ function HelpPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1>How to User Rbetrage</h1>
+					<h1>How to Use Rbetrage</h1>
 				</Stack>
 				<Typography sx={{ mb: 5 }}>
 					Welcome to Rbetrage! This step-by-step guide will help you navigate the platform and maximize its

@@ -1,11 +1,21 @@
-import backgroundImage from '@/assets/images/header/banner_light.png';
+import { Helmet } from 'react-helmet';
+
 import { Box, Stack, Typography } from '@mui/material';
+
 import { trendingProductsArr } from '@/utils/constants';
 import QACard from '@/components/QaCard';
+
+import backgroundImage from '@/assets/images/header/banner_light.png';
 
 function TrendingProductsHelpPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>Trending Products for Dropshipping | Rbetrage</title>
+				<meta name="description" content="Dropshipping page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/help" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',
@@ -26,7 +36,7 @@ function TrendingProductsHelpPage() {
 						borderRadius: '10px',
 					}}
 				>
-					<h1>Website Concept: Rbetrage</h1>
+					<h1>Trending Products for Dropshipping</h1>
 				</Stack>
 				<Stack
 					sx={{

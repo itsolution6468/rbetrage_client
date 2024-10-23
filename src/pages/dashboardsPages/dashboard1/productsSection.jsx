@@ -138,7 +138,10 @@ function ProductsTableRow({ purchase }) {
 	return (
 		<TableRow hover>
 			<TableCell>
-				<img alt="User Img" src={product?.productImg} height={40} />
+				<picture>
+					<source type="image/webp" srcSet={product?.productImg} />
+					<img alt="User Img" src={product?.productImg} height={40} />
+				</picture>
 			</TableCell>
 			<TableCell align="left" padding="none">
 				<Link

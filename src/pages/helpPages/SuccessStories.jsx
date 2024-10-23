@@ -1,5 +1,8 @@
-import backgroundImage from '@/assets/images/header/banner_light.png';
+import { Helmet } from 'react-helmet';
+
 import { Box, Stack } from '@mui/material';
+
+import backgroundImage from '@/assets/images/header/banner_light.png';
 import StoryCard from '@/components/story/card';
 import image1 from '@/assets/images/success1.png';
 import image2 from '@/assets/images/success2.png';
@@ -41,6 +44,12 @@ const cardContents = [
 function SuccessStoryPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>Success Story Page | Rbetrage</title>
+				<meta name="description" content="Dropshipping page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/success_story" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',

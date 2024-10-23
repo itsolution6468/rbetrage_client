@@ -67,7 +67,10 @@ function WinningProducts() {
 				{winningProducts.map((data, index) => (
 					<SwiperSlide key={`product-slide-${index}`} className="landing-swiper">
 						<Link to="/trending">
-							<img src={data.url} alt={`product-${data.title}`} />
+							<picture>
+								<source type="image/webp" srcSet={data.url} />
+								<img src={data.url} alt={`product-${data.title}`} />
+							</picture>
 						</Link>
 					</SwiperSlide>
 				))}

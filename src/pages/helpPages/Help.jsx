@@ -1,5 +1,8 @@
-import backgroundImage from '@/assets/images/header/banner_light.png';
+import { Helmet } from 'react-helmet';
+
 import { Box, Stack, Typography } from '@mui/material';
+
+import backgroundImage from '@/assets/images/header/banner_light.png';
 // import ImageCard from '@/components/ImageCard';
 import image1 from '@/assets/images/help/1.png';
 // import image2 from '@/assets/images/help/2.png';
@@ -13,6 +16,12 @@ import image1 from '@/assets/images/help/1.png';
 function HelpPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>How to use Page | Rbetrage</title>
+				<meta name="description" content="Dropshipping page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/help" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',

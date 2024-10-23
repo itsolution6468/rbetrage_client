@@ -54,7 +54,10 @@ function Partners() {
 		>
 			{imageList.map((item, index) => (
 				<SwiperSlide key={index} className="landing-swiper">
-					<img src={item.src} alt="amazon_logo" />
+					<picture>
+						<source type="image/webp" srcSet={item.src} />
+						<img src={item.src} alt="amazon_logo" />
+					</picture>
 				</SwiperSlide>
 			))}
 		</Swiper>

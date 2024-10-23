@@ -58,7 +58,10 @@ function BitcoinCard(props) {
 			}}
 		>
 			<Stack height="100%" direction="column" spacing={3} justifyContent="center" alignItems="center">
-				<img src={img} alt="bitcoin 1" width="40%" />
+				<picture>
+					<source type="image/webp" srcSet={img} />
+					<img src={img} alt="bitcoin 1" width="40%" />
+				</picture>
 				<Typography variant="h3">{title}</Typography>
 				<Typography variant="body2" color="textSecondary">
 					{content}

@@ -8,7 +8,7 @@ function Story({ story, isMobile }) {
 			sx={{
 				background: '#E9F2F4',
 				maxWidth: '800px !important',
-				width: "100%",
+				width: '100%',
 				marginLeft: 'auto',
 				marginRight: 'auto',
 			}}
@@ -16,8 +16,10 @@ function Story({ story, isMobile }) {
 			mb={isMobile ? 0 : 3}
 			mt={isMobile ? 16 : 3}
 		>
-			<img src={story.image} alt={story.name} className="story-image" />
-
+			<picture>
+				<source type="image/webp" srcSet={story.image} />
+				<img src={story.image} alt={story.name} className="story-image" />
+			</picture>
 			<Box
 				sx={{
 					marginRight: '30px !important',

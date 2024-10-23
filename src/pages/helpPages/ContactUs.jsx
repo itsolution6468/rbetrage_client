@@ -1,9 +1,11 @@
-import constants from '@/utils/constants';
-import backgroundImage from '@/assets/images/header/banner_light.png';
-import { Box, Grid, Stack, TextField, Button, Typography, Link } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
+import { Box, Grid, Stack, TextField, Button, Typography, Link } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 
+import constants from '@/utils/constants';
+
+import backgroundImage from '@/assets/images/header/banner_light.png';
 // Icons
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -15,6 +17,12 @@ import RedditIcon from '@mui/icons-material/Reddit';
 function ContactUsPage() {
 	return (
 		<Box>
+			<Helmet>
+				<title>Contact Us | Rbetrage</title>
+				<meta name="description" content="Dropshipping page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/contact_us" />
+			</Helmet>
 			<Box
 				sx={{
 					justifyContent: 'center',

@@ -1,5 +1,8 @@
-import backgroundImage from '@/assets/images/header/banner_light.png';
+import { Helmet } from 'react-helmet';
+
 import { Box, Stack, Typography, Button, useMediaQuery, useTheme } from '@mui/material';
+
+import backgroundImage from '@/assets/images/header/banner_light.png';
 import image1 from '@/assets/images/blog/1.png';
 import image2 from '@/assets/images/blog/2.png';
 import image3 from '@/assets/images/blog/3.png';
@@ -58,6 +61,12 @@ function Blog({ blog, index }) {
 
 	return (
 		<Stack gap={3} sx={{ my: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
+			<Helmet>
+				<title>Blogs Page | Rbetrage</title>
+				<meta name="description" content="Dropshipping page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/blogs" />
+			</Helmet>
 			<img src={blog.imageUrl} alt={blog.desc} style={{ order: index % 2 && !isMobile ? 2 : 1 }} />
 
 			<Stack

@@ -37,7 +37,10 @@ function StoryCard({ data, order }) {
 					},
 				}}
 			>
-				<img src={data.imageUrl} alt="dropshipping" className="image-card" />
+				<picture>
+					<source type="image/webp" srcSet={data.imageUrl} />
+					<img src={data.imageUrl} alt="dropshipping" className="image-card" />
+				</picture>
 			</Box>
 			<Box
 				sx={{

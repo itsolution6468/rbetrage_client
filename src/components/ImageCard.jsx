@@ -1,9 +1,6 @@
-import { Grid, Stack, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Grid, Stack, Typography } from '@mui/material';
 
 function ImageCard({ data, order }) {
-	const theme = useTheme();
-	const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
 	return (
 		<Grid
 			container
@@ -33,11 +30,10 @@ function ImageCard({ data, order }) {
 					alignItems: 'center',
 				}}
 			>
-				<img
-					src={data.imageUrl}
-					alt="dropshipping"
-					className='image-card'
-				/>
+				<picture>
+					<source type="image/webp" srcSet={data.imageUrl} />
+					<img src={data.imageUrl} alt="dropshipping" className="image-card" />
+				</picture>
 			</Grid>
 
 			<Grid

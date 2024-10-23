@@ -25,11 +25,14 @@ function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProd
 				borderRadius: '20px',
 			}}
 		>
-			<img
-				src={product.imageUrl ? product.imageUrl : product.url}
-				alt={product.description}
-				className="products-image"
-			/>
+			<picture>
+				<source type="image/webp" srcSet={product.imageUrl ? product.imageUrl : product.urll} />
+				<img
+					src={product.imageUrl ? product.imageUrl : product.url}
+					alt={product.description}
+					className="products-image"
+				/>
+			</picture>
 			<Stack
 				sx={{
 					flexDirection: 'column',

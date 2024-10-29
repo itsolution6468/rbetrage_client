@@ -217,26 +217,28 @@ function DropshippingPage() {
 				>
 					<h1>Dropshipping</h1>
 				</Stack>
-				{cardContents.map((card, index) => (
-					<ImageCard key={`card-${index}`} data={card} order={index + 1} />
-				))}
-				{contentsArr.map((item, index) => (
-					<Stack sx={{ gap: 2, mb: 2 }} key={`sub-${index}`}>
-						<Typography sx={{ fontSize: '16px', fontWeight: '600' }}>{item.title}</Typography>
-						{item.content ? <Typography sx={{ fontSize: '13px' }}>{item.content}</Typography> : ''}
-						{item.details?.length ? (
-							<Stack>
-								{item.details.map((subLineItem, index1) => (
-									<Typography sx={{ fontSize: '13px' }} key={`subline-${index1}`}>
-										{subLineItem}
-									</Typography>
-								))}
-							</Stack>
-						) : (
-							''
-						)}
-					</Stack>
-				))}
+				<Box sx={{ display: 'flex', flexDirection: 'column', px: '40px' }}>
+					{cardContents.map((card, index) => (
+						<ImageCard key={`card-${index}`} data={card} order={index + 1} />
+					))}
+					{contentsArr.map((item, index) => (
+						<Stack sx={{ gap: 2, mb: 2 }} key={`sub-${index}`}>
+							<Typography sx={{ fontSize: '16px', fontWeight: '600' }}>{item.title}</Typography>
+							{item.content ? <Typography sx={{ fontSize: '13px' }}>{item.content}</Typography> : ''}
+							{item.details?.length ? (
+								<Stack>
+									{item.details.map((subLineItem, index1) => (
+										<Typography sx={{ fontSize: '13px' }} key={`subline-${index1}`}>
+											{subLineItem}
+										</Typography>
+									))}
+								</Stack>
+							) : (
+								''
+							)}
+						</Stack>
+					))}
+				</Box>
 			</Box>
 		</Box>
 	);

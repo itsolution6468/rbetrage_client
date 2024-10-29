@@ -6,12 +6,12 @@ function ImageCard({ data, order }) {
 			container
 			sx={{
 				flexDirection: 'row',
-				maxWidth: {
-					md: '90%',
-					lg: '100%',
-				},
+				// maxWidth: {
+				// 	md: '90%',
+				// 	lg: '100%',
+				// },
 				alignItems: 'center',
-				justifyContent: 'center',
+				justifyContent: 'space-between',
 				mx: 'auto',
 				mb: '30px',
 			}}
@@ -26,7 +26,7 @@ function ImageCard({ data, order }) {
 						md: order % 2 ? 1 : 2,
 					},
 					display: 'flex',
-					justifyContent: 'center',
+					justifyContent: 'space-between',
 					alignItems: 'center',
 				}}
 			>

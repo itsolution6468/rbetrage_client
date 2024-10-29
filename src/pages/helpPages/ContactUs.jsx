@@ -106,32 +106,32 @@ function ContactForm() {
 					JOIN US
 				</Typography>
 				<Stack direction="row" spacing={1} sx={{ marginLeft: '-10px' }}>
-					<Link href={constants.siteData.siteRepo} target="_blank" rel="noreferrer noopener">
+					<Link href={constants.siteData.facebook} target="_blank" rel="noreferrer noopener">
 						<IconButton aria-label="network" sx={{ color: '#193D34' }}>
 							<FacebookIcon />
 						</IconButton>
 					</Link>
-					<Link href={constants.siteData.siteRepo} target="_blank" rel="noreferrer noopener">
+					<Link href={constants.siteData.instagram} target="_blank" rel="noreferrer noopener">
 						<IconButton aria-label="network" sx={{ color: '#193D34' }}>
 							<InstagramIcon />
 						</IconButton>
 					</Link>
-					<Link href={constants.siteData.siteRepo} target="_blank" rel="noreferrer noopener">
+					<Link href={constants.siteData.x} target="_blank" rel="noreferrer noopener">
 						<IconButton aria-label="network" sx={{ color: '#193D34' }}>
 							<XIcon />
 						</IconButton>
 					</Link>
-					<Link href={constants.siteData.siteRepo} target="_blank" rel="noreferrer noopener">
+					<Link href={constants.siteData.youtube} target="_blank" rel="noreferrer noopener">
 						<IconButton aria-label="network" sx={{ color: '#193D34' }}>
 							<YouTubeIcon />
 						</IconButton>
 					</Link>
-					<Link href={constants.siteData.siteRepo} target="_blank" rel="noreferrer noopener">
+					<Link href={constants.siteData.linkedin} target="_blank" rel="noreferrer noopener">
 						<IconButton aria-label="network" sx={{ color: '#193D34' }}>
 							<LinkedInIcon />
 						</IconButton>
 					</Link>
-					<Link href={constants.siteData.siteRepo} target="_blank" rel="noreferrer noopener">
+					<Link href={constants.siteData.reddit} target="_blank" rel="noreferrer noopener">
 						<IconButton aria-label="network" sx={{ color: '#193D34' }}>
 							<RedditIcon />
 						</IconButton>

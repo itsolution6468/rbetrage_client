@@ -26,7 +26,7 @@ const getTheme = () => {
 			values: {
 				xs: 0,
 				// // smartphone
-				sp: 426,
+				sp: 600,
 				sm: 769,
 				md: 901,
 				lg: 1261,

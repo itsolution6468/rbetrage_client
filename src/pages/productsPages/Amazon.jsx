@@ -87,6 +87,7 @@ function AmazonProductPage() {
 											setOpenModal={setOpenModal}
 											setSimilarProducts={setSimilarProducts}
 											setMainProduct={setMainProduct}
+											similarProducts={similarProducts}
 										/>
 									</Grid>
 								))}

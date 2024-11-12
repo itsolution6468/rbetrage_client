@@ -167,7 +167,7 @@ function UserMenu({ handleClose, setIsAuthenticated, user }) {
 		>
 			<Stack px={3}>
 				<Typography variant="subtitle1" textAlign="center">
-					{user?.name}
+					{user?.email}
 				</Typography>
 			</Stack>
 			<Divider
@@ -176,67 +176,18 @@ function UserMenu({ handleClose, setIsAuthenticated, user }) {
 					my: 1,
 				}}
 			/>
-			<MenuItem onClick={handleClose} to="/pages/notifications" component={RouterLink}>
-				<ListItemIcon>
-					<NotificationsNoneOutlinedIcon fontSize="small" />
-				</ListItemIcon>
-				Notifications <ListBadge color="info.main" count={18} />
-			</MenuItem>
-			<MenuItem onClick={handleClose} to="/" component={RouterLink}>
-				<ListItemIcon>
-					<DraftsOutlinedIcon fontSize="small" />
-				</ListItemIcon>
-				Messages
-				<ListBadge color="success.main" count={5} />
-			</MenuItem>
-			<MenuItem onClick={handleClose} to="/" component={RouterLink}>
-				<ListItemIcon>
-					<TaskOutlinedIcon fontSize="small" />
-				</ListItemIcon>
-				Tasks <ListBadge color="error.main" count={23} />
-			</MenuItem>
-			<MenuItem onClick={handleClose} to="/" component={RouterLink}>
-				<ListItemIcon>
-					<CommentOutlinedIcon fontSize="small" />
-				</ListItemIcon>
-				Comments <ListBadge color="warning.main" count={11} />
-			</MenuItem>
-			<Divider
-				sx={{
-					borderColor: 'primary.light',
-					my: 1,
-				}}
-			/>
-			<MenuItem onClick={handleClose} to="/profile" component={RouterLink}>
+			{/* <MenuItem onClick={handleClose} to="/profile" component={RouterLink}>
 				<ListItemIcon>
 					<Person2OutlinedIcon fontSize="small" />
 				</ListItemIcon>
 				Profile
-			</MenuItem>
+			</MenuItem> */}
 
-			<MenuItem onClick={handleClose} to="/pages/settings" component={RouterLink}>
+			<MenuItem onClick={handleClose} to="/account/settings" component={RouterLink}>
 				<ListItemIcon>
 					<SettingsOutlinedIcon fontSize="small" />
 				</ListItemIcon>
-				Account Settings
-			</MenuItem>
-			<MenuItem onClick={handleClose} to="/" component={RouterLink}>
-				<ListItemIcon>
-					<PaymentOutlinedIcon fontSize="small" />
-				</ListItemIcon>
-				Payments
-			</MenuItem>
-			<Divider
-				sx={{
-					borderColor: 'primary.light',
-					my: 1,
-				}}
-			/>
-			<MenuItem onClick={handleClose} component={RouterLink} to="/">
-				<ListItemIcon>
-					<LockPersonOutlinedIcon fontSize="small" />
-				</ListItemIcon>
-				Lock Account
+				Manage Account
 			</MenuItem>
 			<MenuItem onClick={handleLogout} component={RouterLink}>
 				<ListItemIcon>

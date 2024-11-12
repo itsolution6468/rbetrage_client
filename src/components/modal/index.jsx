@@ -35,6 +35,7 @@ function Modal(props) {
 		type = 'contained',
 		padding = false,
 		children,
+		width,
 		...rest
 	} = props;
 
@@ -79,9 +80,9 @@ function UnderlineBox({ title, fnCloseModal }) {
 function ContainedBox({ title, fnCloseModal }) {
 	return (
 		<Box top="0" position="sticky" zIndex={9999}>
-			<Stack direction="row" alignItems="center" height={50} >
+			<Stack direction="row" alignItems="center" height={50}>
 				<Box width="100%">
-					<CloseButton fnCloseModal={fnCloseModal} color='#193D34' />
+					<CloseButton fnCloseModal={fnCloseModal} color="#193D34" />
 				</Box>
 			</Stack>
 		</Box>

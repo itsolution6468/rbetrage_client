@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import axios from 'axios';
 import { Stack, Typography, Button } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import SearchIcon from '@mui/icons-material/Search';
+import ProductAnalysisModal from '@/pages/componentsPages/modal/Productsanalysis';
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
 function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProduct }) {
+	const [isOpen, setOpen] = useState(false);
 	const handleSingleProduct = () => {
 		setMainProduct(product);
 		axios.post(`${BACKEND_API}/products/similar_products`, { product }).then((result) => {
@@ -14,6 +17,15 @@ function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProd
 		});
 		setOpenModal(true);
 	};
+
+	const handleAnalysis = () => {
+		setOpen(true);
+	};
+
+	const closeModal = () => {
+		setOpen(false);
+	};
+
 	return (
 		<Stack
 			sx={{
@@ -23,6 +35,9 @@ function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProd
 				bgcolor: (theme) => (theme.palette.mode === 'dark' ? '#fff' : '#fff'),
 				color: (theme) => (theme.palette.mode === 'dark' ? '#000' : 'grey.800'),
 				borderRadius: '20px',
+				height: '100%',
+				display: 'flex',
+				justifyContent: 'flex-end',
 			}}
 		>
 			<picture>
@@ -100,9 +115,11 @@ function WalmartProduct({ product, setOpenModal, setSimilarProducts, setMainProd
 					boxShadow: 'none',
 					borderRadius: '10px',
 				}}
+				onClick={handleAnalysis}
 			>
 				View Product Analysis
 			</Button>
+			<ProductAnalysisModal openModal={isOpen} closeModal={closeModal} product={product} />
 		</Stack>
 	);
 }

@@ -32,6 +32,7 @@ const ContactUsPage = withLazyLoadably(lazy(() => import('@/pages/helpPages/Cont
 const ConceptPage = withLazyLoadably(lazy(() => import('@/pages/helpPages/Concept')));
 const TrendingProductsHelpPage = withLazyLoadably(lazy(() => import('@/pages/helpPages/TrendingProducts')));
 const SuccessStoryPage = withLazyLoadably(lazy(() => import('@/pages/helpPages/SuccessStories')));
+const AccountPage = withLazyLoadably(lazy(() => import('@/pages/accountPages')));
 
 function Router() {
 	return (
@@ -42,6 +43,9 @@ function Router() {
 						{/* <Route index element={<ProtectedRoutes component={LandingPage} />} /> */}
 						<Route index element={<LandingPage />} />
 						<Route path="home" element={<LandingPage />} />
+						<Route path="account/">
+							<Route path="settings" element={<AccountPage />} />
+						</Route>
 						<Route path="trending/facebook" element={<FacebookTrendingProductPage />} />
 						<Route path="trending/google" element={<GoogleTrendingProductPage />} />
 						<Route path="products/">

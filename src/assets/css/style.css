@@ -63,6 +63,10 @@ h1 {
 	font-weight: 800;
 }
 
+p {
+	margin: 0;
+}
+
 .landing-title-h1 {
 	font-weight: 400;
 	letter-spacing: 1px;
@@ -83,8 +87,9 @@ h1 {
 }
 
 .products-image {
-	object-fit: contain;
+	object-fit: scale-down;
 	height: 200px;
+	width: 100%;
 	cursor: pointer;
 }
 
@@ -144,4 +149,29 @@ h1 {
 .swiper-slide {
 	display: flex !important;
 	align-items: center !important;
+}
+
+.analysis-title {
+	font-weight: 500;
+	font-size: 17px;
+	line-height: 20px;
+	color: #193d34;
+}
+
+.analysis-price-content {
+	font-weight: 500;
+	font-size: 13px;
+	color: #193d34;
+}
+
+.analysis-price {
+	font-weight: 600;
+	font-size: 13px;
+	color: #193d34;
+}
+
+.analysis-subtitle {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 18px;
 }

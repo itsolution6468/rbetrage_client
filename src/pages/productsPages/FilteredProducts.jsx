@@ -34,11 +34,11 @@ function FilteredProductPage() {
 	const params = new URLSearchParams(location.search);
 	const searchQuery = params.get('search');
 
-	useEffect(() => {
-		if (!localStorage.getItem('TOKEN')) {
-			navigate('/home');
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (!localStorage.getItem('TOKEN')) {
+	// 		navigate('/home');
+	// 	}
+	// }, []);
 
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);

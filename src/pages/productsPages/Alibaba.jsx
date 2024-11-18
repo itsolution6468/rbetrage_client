@@ -14,11 +14,11 @@ const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 function AlibabaProductPage() {
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		if (!localStorage.getItem('TOKEN')) {
-			navigate('/home');
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (!localStorage.getItem('TOKEN')) {
+	// 		navigate('/home');
+	// 	}
+	// }, []);
 
 	const [products, setProducts] = useState([]);
 	const [total, setTotal] = useState(0);

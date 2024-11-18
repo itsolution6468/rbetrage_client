@@ -122,7 +122,7 @@ function FilteredProductPage() {
 	};
 
 	const handleFilterProducts = () => {
-		const query = `search=${encodeURIComponent(searchQuery)}&minPrice=${value[0]}&maxPrice=${value[1]}&${marketPlaces.map((mp) => `marketPlaces=${encodeURIComponent(mp)}`).join('&')}&rating=${rating}&${countries.map((mp) => `countries=${encodeURIComponent(mp)}`).join('&')}`;
+		const query = `search=${encodeURIComponent(searchQuery)}&minPrice=${value[0]}&maxPrice=${value[1]}&marketPlaces=${marketPlaces.map((mp) => encodeURIComponent(mp)).join(',')}&rating=${rating}&${countries.map((mp) => `countries=${encodeURIComponent(mp)}`).join('&')}`;
 		axios.get(`${BACKEND_API}/products/filtered_products?${query}`).then((res) => {
 			setProducts(res.data);
 		});

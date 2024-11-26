@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Grid, Stack, Typography, Box } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
-import AmazonProduct from '@/components/product/Amazon';
+import AlibabaProduct from '@/components/product/Alibaba';
 import SingleProductModal from '../componentsPages/modal/SingleProductModal';
 
 import backgroundImage from '@/assets/images/header/banner_light.png';
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
-function AmazonProductPage() {
+function StreetProductPage() {
 	const navigate = useNavigate();
 
 	// useEffect(() => {
@@ -29,13 +29,19 @@ function AmazonProductPage() {
 	const [similarProducts, setSimilarProducts] = useState([]);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/products/total?market=Amazon`).then((res) => {
+		console.log('aaaaaa');
+
+		axios.get(`${BACKEND_API}/products/total?market=Alibaba`).then((res) => {
+			console.log(res.data);
+
 			setTotal(res.data);
 		});
 	}, []);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/products?page=${page}&market=Amazon&perPage=${perPage}`).then((res) => {
+		axios.get(`${BACKEND_API}/products?page=${page}&market=Alibaba&perPage=${perPage}`).then((res) => {
+			console.log(res.data);
+
 			setProducts(res.data);
 		});
 	}, [page]);
@@ -44,16 +50,13 @@ function AmazonProductPage() {
 		setPage(value);
 	};
 
-	console.log("amazon", products);
-	
-
 	return (
 		<Box>
 			<Helmet>
-				<title>Amazon Products Page | Rbetrage</title>
-				<meta name="description" content="Amazon Products page of rbetrage" />
+				<title>6th Street Products Page | Rbetrage</title>
+				<meta name="description" content="6th Street Products page of rbetrage" />
 
-				<link rel="canonical" href="https://rbetraj.com/products/amazon" />
+				<link rel="canonical" href="https://rbetraj.com/products/6th-street" />
 			</Helmet>
 			<Stack
 				sx={{
@@ -68,7 +71,7 @@ function AmazonProductPage() {
 					borderRadius: '10px',
 				}}
 			>
-				<h1>Amazon Products</h1>
+				<h1>6th Street Products</h1>
 			</Stack>
 			<Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} gap={3}>
 				{products.length ? (
@@ -85,12 +88,11 @@ function AmazonProductPage() {
 							<Grid container spacing={2}>
 								{products.map((product, index) => (
 									<Grid item md={3} sm={6} xs={12} key={`product-${index}`}>
-										<AmazonProduct
+										<AlibabaProduct
 											product={product}
 											setOpenModal={setOpenModal}
 											setSimilarProducts={setSimilarProducts}
 											setMainProduct={setMainProduct}
-											similarProducts={similarProducts}
 										/>
 									</Grid>
 								))}
@@ -119,4 +121,4 @@ function AmazonProductPage() {
 	);
 }
 
-export default AmazonProductPage;
+export default StreetProductPage;

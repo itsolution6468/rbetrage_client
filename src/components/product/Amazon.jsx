@@ -10,6 +10,8 @@ const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 function AmazonProduct({ product, setOpenModal, setSimilarProducts, setMainProduct }) {
 	const [isOpen, setOpen] = useState(false);
 	const [matchProducts, setMatchProducts] = useState([]);
+	console.log("product", product);
+
 	const handleSingleProduct = () => {
 		setMainProduct(product);
 		axios

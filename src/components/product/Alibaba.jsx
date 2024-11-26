@@ -1,17 +1,40 @@
+import { useState } from 'react';
 import axios from 'axios';
 import { Button, Stack, Typography } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import SearchIcon from '@mui/icons-material/Search';
 
+import ProductAnalysisModal from '@/pages/componentsPages/modal/Productsanalysis';
+
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
 function AmazonProduct({ product, setOpenModal, setSimilarProducts, setMainProduct }) {
+	const [isOpen, setOpen] = useState(false);
+	const [matchProducts, setMatchProducts] = useState([]);
+
 	const handleSingleProduct = () => {
 		setMainProduct(product);
 		axios.post(`${BACKEND_API}/products/similar_products`, { product }).then((result) => {
 			setSimilarProducts(result.data);
 		});
 		setOpenModal(true);
+	};
+
+	const handleAnalysis = () => {
+		setOpen(true);
+		// axios
+		// 	.post(`${BACKEND_API}/products/similar_products`, { product })
+		// 	.then((result) => {
+		// 		console.log('result', result.data);
+
+		// 		setSimilarProducts(result.data);
+		// 		// setMatchProducts(result.data);
+		// 	})
+		// 	.catch((e) => console.log(e));
+	};
+
+	const closeModal = () => {
+		setOpen(false);
 	};
 
 	return (
@@ -49,7 +72,7 @@ function AmazonProduct({ product, setOpenModal, setSimilarProducts, setMainProdu
 					}}
 					onClick={(e) => handleSingleProduct()}
 				>
-					{product.title.length > 100 ? product.title.slice(0, 100) + String('...') : product.title}
+					{product?.title.length > 100 ? product.title.slice(0, 100) + String('...') : product.title}
 				</Typography>
 				<Stack
 					sx={{
@@ -58,22 +81,22 @@ function AmazonProduct({ product, setOpenModal, setSimilarProducts, setMainProdu
 						gap: '5px',
 					}}
 				>
-					{product.other.stars ? (
+					{product?.other?.stars ? (
 						<>
 							<Rating
 								name="half-rating-read"
-								defaultValue={product.other.stars}
+								defaultValue={product?.other.stars}
 								precision={0.5}
 								readOnly
 							/>
-							{product.other.stars}
+							{product?.other.stars}
 						</>
 					) : (
 						''
 					)}
-					<Typography>({product.other.reviewsCount})</Typography>
+					<Typography>({product?.other?.reviewsCount})</Typography>
 				</Stack>
-				{product.price ? (
+				{product?.price ? (
 					<Typography sx={{ fontSize: '20px', color: '#193D34', fontWeight: '500' }}>
 						{product.price ? product.price : ''}
 					</Typography>
@@ -90,10 +113,17 @@ function AmazonProduct({ product, setOpenModal, setSimilarProducts, setMainProdu
 						boxShadow: 'none',
 						borderRadius: '10px',
 					}}
+					onClick={handleAnalysis}
 				>
 					View Product Analysis
 				</Button>
 			</Stack>
+			<ProductAnalysisModal
+				openModal={isOpen}
+				closeModal={closeModal}
+				product={product}
+				similarProducts={matchProducts}
+			/>
 		</Stack>
 	);
 }

@@ -29,8 +29,8 @@ function AlibabaProductPage() {
 	const [similarProducts, setSimilarProducts] = useState([]);
 
 	useEffect(() => {
-        console.log("aaaaaa");
-        
+		console.log('aaaaaa');
+
 		axios.get(`${BACKEND_API}/products/total?market=Alibaba`).then((res) => {
 			console.log(res.data);
 
@@ -40,6 +40,8 @@ function AlibabaProductPage() {
 
 	useEffect(() => {
 		axios.get(`${BACKEND_API}/products?page=${page}&market=Alibaba&perPage=${perPage}`).then((res) => {
+			console.log(res.data);
+
 			setProducts(res.data);
 		});
 	}, [page]);

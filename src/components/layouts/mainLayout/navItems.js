@@ -28,13 +28,25 @@ const NAV_LINKS_CONFIG = [
 				href: '/products/alibaba',
 			},
 			{
-				title: 'AliExpress',
-				href: '/products/ali-express',
+				title: '6th Street',
+				href: '/products/6th-street',
 			},
 			{
-				title: 'Ebay',
-				href: '/products/ebay',
+				title: 'Jumbo',
+				href: '/products/jumbo',
 			},
+			{
+				title: 'Supermarket',
+				href: '/products/supermarket',
+			},
+			// {
+			// 	title: 'AliExpress',
+			// 	href: '/products/ali-express',
+			// },
+			// {
+			// 	title: 'Ebay',
+			// 	href: '/products/ebay',
+			// },
 		],
 	},
 	{
@@ -77,13 +89,13 @@ const NAV_LINKS_CONFIG = [
 		id: uuid(),
 		type: 'item',
 		title: 'Success Stories',
-		href: '/success_story'
+		href: '/success_story',
 	},
 	{
 		id: uuid(),
 		type: 'item',
 		title: 'Blog',
-		href: '/blogs'
+		href: '/blogs',
 	},
 ];
 

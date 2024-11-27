@@ -31,7 +31,7 @@ function StreetProductPage() {
 	useEffect(() => {
 		console.log('aaaaaa');
 
-		axios.get(`${BACKEND_API}/products/total?market=Alibaba`).then((res) => {
+		axios.get(`${BACKEND_API}/products/total?market=6thStreet`).then((res) => {
 			console.log(res.data);
 
 			setTotal(res.data);
@@ -39,7 +39,7 @@ function StreetProductPage() {
 	}, []);
 
 	useEffect(() => {
-		axios.get(`${BACKEND_API}/products?page=${page}&market=Alibaba&perPage=${perPage}`).then((res) => {
+		axios.get(`${BACKEND_API}/products?page=${page}&market=6thStreet&perPage=${perPage}`).then((res) => {
 			console.log(res.data);
 
 			setProducts(res.data);

@@ -77,6 +77,7 @@ function ProductAnalysis({ openModal, closeModal, product, similarProducts }) {
 										fontSize: '13px',
 										fontWeight: 600,
 										padding: '7px',
+										textWrap: 'nowrap',
 									}}
 									onClick={handleMarketPlace}
 								>
@@ -93,6 +94,7 @@ function ProductAnalysis({ openModal, closeModal, product, similarProducts }) {
 										fontSize: '13px',
 										fontWeight: 600,
 										padding: '7px',
+										textWrap: 'nowrap',
 									}}
 								>
 									Import to Shopify

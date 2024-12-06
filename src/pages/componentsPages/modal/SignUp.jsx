@@ -6,6 +6,7 @@ import axios from 'axios';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase-config';
 import GoogleLoginButton from '@/components/GoogleLoginButton';
+import { toast } from 'react-toastify';
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
@@ -26,7 +27,7 @@ function SignUpModal({ openModal, setOpenModal }) {
 					<LoginForm setOpenModal={setOpenModal} />
 
 					<Divider>OR</Divider>
-					<GoogleLoginButton />
+					<GoogleLoginButton setOpenModal={setOpenModal} />
 				</Stack>
 			</Stack>
 		</Modal>
@@ -46,24 +47,34 @@ function LoginForm({ setOpenModal }) {
 
 		try {
 			const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password);
-			const token = await userCredential.user.getIdToken();
+			// const token = await userCredential.user.getIdToken();
+			const uid = userCredential?.user?.uid;
 
-			const payloadHeader = {
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${token}`,
-				},
-			};
+			// const payloadHeader = {
+			// 	headers: {
+			// 		'Content-Type': 'application/json',
+			// 		Authorization: `Bearer ${token}`,
+			// 	},
+			// };
 
-			const response = await axios.post(`${BACKEND_API}/auth/signUp`, { name: user.name, email: user.email, password: user.password }, payloadHeader);
+			const response = await axios.post(
+				`${BACKEND_API}/auth/signUp`,
+				{ name: user.name, email: user.email, uid },
+				// payloadHeader,
+			);
 			const jwtToken = response.data.token;
 
 			localStorage.setItem('TOKEN', jwtToken);
 
 			setOpenModal(false);
-			window.location.reload();
+			toast.success('Sign up successfully!', {
+				autoClose: 3000,
+			});
 		} catch (error) {
 			console.error('Error during signup:', error.message);
+			toast.error('Failed to sign up.', {
+				autoClose: 3000,
+			});
 		}
 	};
 
@@ -112,12 +123,7 @@ function LoginForm({ setOpenModal }) {
 				label={
 					<Typography sx={{ fontSize: '15px' }}>
 						I agree to the
-						<Link
-							href="/terms"
-							target="_blank"
-							rel="noopener noreferrer"
-							sx={{ textDecoration: 'none' }}
-						>
+						<Link href="/terms" target="_blank" rel="noopener noreferrer" sx={{ textDecoration: 'none' }}>
 							{' '}
 							terms and conditions
 						</Link>

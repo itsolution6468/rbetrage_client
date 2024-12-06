@@ -36,7 +36,7 @@ function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal, setIs
 						setIsAuthenticated={setIsAuthenticated}
 					/>
 					<Divider>OR</Divider>
-					<GoogleLoginButton />
+					<GoogleLoginButton setOpenModal={setOpenModal} />
 					<Typography>
 						No account yet?{' '}
 						<Link to="/auth/signup" variant="body2" component={RouterLink}>
@@ -72,7 +72,7 @@ function LoginForm({ setOpenModal, setShowForgetPasswordModal, setIsAuthenticate
 				},
 			};
 
-			const response = await axios.post(`${BACKEND_API}/auth/signIn`, {}, payloadHeader);
+			const response = await axios.post(`${BACKEND_API}/auth/signIn`, { email: user.email }, payloadHeader);
 			const jwtToken = response.data.token;
 
 			localStorage.setItem('TOKEN', jwtToken);

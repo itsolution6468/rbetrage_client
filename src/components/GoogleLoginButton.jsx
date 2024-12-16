@@ -41,7 +41,7 @@ function GoogleLoginButton({ setOpenModal }) {
 					backgroundColor: '#E9F2F4',
 					borderColor: 'border',
 				}}
-				to="/home"
+				to="/"
 				component={RouterLink}
 				onClick={handleLogin}
 			>

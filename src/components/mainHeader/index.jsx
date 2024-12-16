@@ -124,7 +124,7 @@ function MainHeader() {
 				spacing={3}
 				overflow="hidden"
 			>
-				<Stack direction="row" alignItems="center" spacing={1} onClick={() => navigate('/home')}>
+				<Stack direction="row" alignItems="center" spacing={1} onClick={() => navigate('/')}>
 					<Box
 						component="img"
 						width={{
@@ -139,7 +139,7 @@ function MainHeader() {
 
 				{isMobile ? (
 					<Stack direction="row" sx={{ alignItems: 'center', gap: '10px' }}>
-						<IconButton onClick={() => navigate('/home')}>
+						<IconButton onClick={() => navigate('/')}>
 							<AccountBoxRounded fontSize="large" />
 						</IconButton>
 

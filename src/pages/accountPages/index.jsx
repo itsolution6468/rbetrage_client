@@ -15,7 +15,7 @@ function AmazonProductPage() {
 
 	useEffect(() => {
 		if (!localStorage.getItem('TOKEN')) {
-			navigate('/home');
+			navigate('/');
 		}
 	}, []);
 

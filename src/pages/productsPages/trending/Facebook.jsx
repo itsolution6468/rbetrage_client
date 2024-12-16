@@ -18,7 +18,7 @@ function FacebookTrendingProductPage() {
 
 	useEffect(() => {
 		if (!localStorage.getItem('TOKEN')) {
-			navigate('/home');
+			navigate('/');
 		}
 	}, []);
 

@@ -12,9 +12,9 @@ function TrendingProductsHelpPage() {
 		<Box>
 			<Helmet>
 				<title>Trending Products for Dropshipping | Rbetrage</title>
-				<meta name="description" content="Dropshipping page of rbetrage" />
+				<meta name="description" content="Trending products page of rbetrage" />
 
-				<link rel="canonical" href="https://rbetraj.com/help" />
+				<link rel="canonical" href="https://rbetraj.com/trending_products_guide" />
 			</Helmet>
 			<Box
 				sx={{

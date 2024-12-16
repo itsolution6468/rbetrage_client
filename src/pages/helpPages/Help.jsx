@@ -219,7 +219,7 @@ function HelpPage() {
 		<Box>
 			<Helmet>
 				<title>How to use Page | Rbetrage</title>
-				<meta name="description" content="Dropshipping page of rbetrage" />
+				<meta name="description" content="Help page of rbetrage" />
 
 				<link rel="canonical" href="https://rbetraj.com/help" />
 			</Helmet>

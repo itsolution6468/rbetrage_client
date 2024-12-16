@@ -23,6 +23,7 @@ const EtsyProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPage
 const WalmartProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Walmart')));
 const AlibabaProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Alibaba')));
 const StreetProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Street')));
+const JumboProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/Jumbo')));
 const FacebookTrendingProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/trending/Facebook')));
 const GoogleTrendingProductPage = withLazyLoadably(lazy(() => import('@/pages/productsPages/trending/Google')));
 const FaqPage = withLazyLoadably(lazy(() => import('@/pages/helpPages/Faq')));
@@ -43,7 +44,6 @@ function Router() {
 					<Route path="/" element={<MainLayout />}>
 						{/* <Route index element={<ProtectedRoutes component={LandingPage} />} /> */}
 						<Route index element={<LandingPage />} />
-						<Route path="home" element={<LandingPage />} />
 						<Route path="account/">
 							<Route path="settings" element={<AccountPage />} />
 						</Route>
@@ -55,7 +55,7 @@ function Router() {
 							<Route path="walmart" element={<WalmartProductPage />} />
 							<Route path="alibaba" element={<AlibabaProductPage />} />
 							<Route path="6th-street" element={<StreetProductPage />} />
-							<Route path="jumbo" element={<AlibabaProductPage />} />
+							<Route path="jumbo" element={<JumboProductPage />} />
 							<Route path="supermarket" element={<AlibabaProductPage />} />
 							<Route path="filter" element={<FilteredProductPage />} />
 						</Route>

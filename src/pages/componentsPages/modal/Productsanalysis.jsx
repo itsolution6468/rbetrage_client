@@ -1,5 +1,5 @@
 import Modal from '@/components/modal';
-import { Stack, Box, Button } from '@mui/material';
+import { Stack, Box, Button, Typography, Grid, Link } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 // import EqualizerIcon from '@mui/icons-material/Equalizer';
 // import StarIcon from '@mui/icons-material/Star';
@@ -137,6 +137,60 @@ function ProductAnalysis({ openModal, closeModal, product, similarProducts }) {
 							</picture>
 							<Box>{/* <p></p> */}</Box>
 						</Box>
+
+						{similarProducts?.map((product) => (
+							<Stack
+								key={`product-${product.id}`}
+								sx={{
+									border: '1px solid #E9F2F4',
+									borderRadius: '10px',
+									padding: 2,
+								}}
+							>
+								<Grid container spacing={2}>
+									<Grid
+										item
+										xs={3}
+										sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+									>
+										<picture>
+											<source type="image/webp" srcSet={product.imageUrl} />
+											<img
+												src={product.imageUrl}
+												alt="similar_product"
+												key={`product-${product.id}`}
+												width="50px"
+											/>
+										</picture>
+									</Grid>
+									<Grid item xs={9}>
+										<Stack spacing={1}>
+											<Typography>{product.title}</Typography>
+											<Link
+												href={product.url}
+												target="_blank"
+												rel="noreferrer noopener"
+												sx={{ color: '#193D34', textDecoration: 'none' }}
+											>
+												{product?.url}
+											</Link>
+											<Typography
+												sx={{
+													padding: '10px 10px 10px 10px',
+													border: '1px solid #E9F2F4',
+													borderRadius: '10px',
+													background: '#E9F2F4',
+													display: 'inline-block',
+													maxWidth: '70px',
+												}}
+											>
+												{product.marketPlace}
+											</Typography>
+										</Stack>
+									</Grid>
+								</Grid>
+							</Stack>
+						))}
 					</Box>
 				</Stack>
 			</Modal>

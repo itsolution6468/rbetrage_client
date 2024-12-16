@@ -107,37 +107,45 @@ function Blog({ blog, index }) {
 
 function BlogPage() {
 	return (
-		<Box>
-			<Box
-				sx={{
-					justifyContent: 'center',
-					marginBottom: '20px',
-				}}
-			>
-				<Stack
+		<>
+			<Helmet>
+				<title>Blogs Page | Rbetrage</title>
+				<meta name="description" content="Blog page of rbetrage" />
+
+				<link rel="canonical" href="https://rbetraj.com/blogs" />
+			</Helmet>
+			<Box>
+				<Box
 					sx={{
 						justifyContent: 'center',
-						display: 'flex',
-						backgroundImage: `url(${backgroundImage})`,
-						backgroundSize: 'cover',
-						backgroundPosition: 'center',
-						color: '#193D34',
-						width: '100%',
-						height: '160px',
-						marginBottom: '40px',
-						borderRadius: '10px',
+						marginBottom: '20px',
 					}}
 				>
-					<h1>Blog</h1>
-				</Stack>
+					<Stack
+						sx={{
+							justifyContent: 'center',
+							display: 'flex',
+							backgroundImage: `url(${backgroundImage})`,
+							backgroundSize: 'cover',
+							backgroundPosition: 'center',
+							color: '#193D34',
+							width: '100%',
+							height: '160px',
+							marginBottom: '40px',
+							borderRadius: '10px',
+						}}
+					>
+						<h1>Blog</h1>
+					</Stack>
 
-				<Stack sx={{ maxWidth: '95%', justifyContent: 'center', display: 'flex', mx: 'auto' }}>
-					{blogs.map((blog, index) => (
-						<Blog blog={blog} key={`blog-${index}`} index={index} />
-					))}
-				</Stack>
+					<Stack sx={{ maxWidth: '95%', justifyContent: 'center', display: 'flex', mx: 'auto' }}>
+						{blogs.map((blog, index) => (
+							<Blog blog={blog} key={`blog-${index}`} index={index} />
+						))}
+					</Stack>
+				</Box>
 			</Box>
-		</Box>
+		</>
 	);
 }
 

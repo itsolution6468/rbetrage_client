@@ -19,7 +19,7 @@ function ContactUsPage() {
 		<Box>
 			<Helmet>
 				<title>Contact Us | Rbetrage</title>
-				<meta name="description" content="Dropshipping page of rbetrage" />
+				<meta name="description" content="Contact us page of rbetrage" />
 
 				<link rel="canonical" href="https://rbetraj.com/contact_us" />
 			</Helmet>

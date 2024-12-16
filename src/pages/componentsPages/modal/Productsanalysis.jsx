@@ -64,7 +64,12 @@ function ProductAnalysis({ openModal, closeModal, product, similarProducts }) {
 							</Box>
 							<Box
 								mt={1}
-								sx={{ display: 'flex', flexDirection: 'row', gap: 1, justifyContent: 'space-between' }}
+								sx={{
+									display: 'flex',
+									flexDirection: 'row',
+									gap: 1,
+									justifyContent: 'space-between',
+								}}
 							>
 								<Button
 									variant="contained"
@@ -124,7 +129,14 @@ function ProductAnalysis({ openModal, closeModal, product, similarProducts }) {
 					</Box>
 					<Box mt={2}>
 						<p className="analysis-subtitle">Matching Pages</p>
-						<Box mt={1} sx={{ border: '1px solid #E9F2F4', borderRadius: '5px', p: '20px' }}>
+						<Box
+							mt={1}
+							sx={{
+								border: '1px solid #E9F2F4',
+								borderRadius: '5px',
+								p: '20px',
+							}}
+						>
 							<picture>
 								<source type="image/webp" srcSet={product.imageUrl} />
 								<img
@@ -151,7 +163,11 @@ function ProductAnalysis({ openModal, closeModal, product, similarProducts }) {
 									<Grid
 										item
 										xs={3}
-										sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+										sx={{
+											display: 'flex',
+											justifyContent: 'center',
+											alignItems: 'center',
+										}}
 									>
 										<picture>
 											<source type="image/webp" srcSet={product.imageUrl} />

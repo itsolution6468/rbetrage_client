@@ -152,17 +152,19 @@ function FilteredProductPage() {
 				<h1>Search Products</h1>
 			</Stack>
 			<Stack
-				direction="row"
+				direction={{ xs: 'column', md: 'row' }}
 				spacing={2}
 				sx={{
 					alignItems: 'center',
-					display: 'flex',
 					color: 'white',
 					width: '100%',
-					height: '160px',
+					height: {
+						sm: 'auto',
+						md: '160px',
+					},
 					borderRadius: '10px',
 					backgroundColor: '#193D34',
-					px: 3,
+					p: 3,
 					justifyContent: 'space-between',
 				}}
 			>

@@ -21,6 +21,14 @@ import ForgetPasswordModal from '@/pages/componentsPages/modal/ForgetPassword';
 function MobileNavbar({ isMobile, navigate }) {
 	const [expanded, setExpanded] = useState('');
 
+	const onExpand = (item) => {
+		if (item.menuChildren) {
+			setExpanded(item.title);
+		} else {
+			navigate(item.href);
+		}
+	};
+
 	return (
 		<Stack
 			sx={{
@@ -37,7 +45,7 @@ function MobileNavbar({ isMobile, navigate }) {
 								fontSize: '20px',
 								cursor: 'pointer',
 							}}
-							onClick={() => setExpanded(item.title)}
+							onClick={() => onExpand(item)}
 						>
 							{item.title}
 						</Typography>
@@ -139,9 +147,19 @@ function MainHeader() {
 
 				{isMobile ? (
 					<Stack direction="row" sx={{ alignItems: 'center', gap: '10px' }}>
-						<IconButton onClick={() => navigate('/')}>
-							<AccountBoxRounded fontSize="large" />
-						</IconButton>
+						{isAuthenticated ? (
+							<LoggedUser setIsAuthenticated={setIsAuthenticated} />
+						) : (
+							<IconButton
+								onClick={() => {
+									setShowSignUpModal(false);
+									setShowForgetPasswordModal(false);
+									setShowSignInModal(true);
+								}}
+							>
+								<AccountBoxRounded fontSize="large" />
+							</IconButton>
+						)}
 
 						<IconButton color="inherit" aria-label="open drawer" onClick={toggleMenu} edge="start">
 							<MenuIcon />
@@ -240,6 +258,7 @@ function MainHeader() {
 				setOpenModal={setShowSignInModal}
 				setShowForgetPasswordModal={setShowForgetPasswordModal}
 				setIsAuthenticated={setIsAuthenticated}
+				setShowSignUpModal={setShowSignUpModal}
 			/>
 			<SignUpModal openModal={showSignUpModal} setOpenModal={setShowSignUpModal} />
 			<ForgetPasswordModal openModal={showForgetPasswordModal} setOpenModal={setShowForgetPasswordModal} />

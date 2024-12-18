@@ -16,7 +16,7 @@ import GoogleLoginButton from '@/components/GoogleLoginButton';
 
 const BACKEND_API = import.meta.env.VITE_BACKEND_API_URL;
 
-function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal, setIsAuthenticated }) {
+function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal, setIsAuthenticated, setShowSignUpModal }) {
 	const closeModal = () => {
 		setOpenModal(false);
 	};
@@ -39,9 +39,20 @@ function LoginModal({ openModal, setOpenModal, setShowForgetPasswordModal, setIs
 					<GoogleLoginButton setOpenModal={setOpenModal} />
 					<Typography>
 						No account yet?{' '}
-						<Link to="/auth/signup" variant="body2" component={RouterLink}>
+						<Button
+							variant="text"
+							sx={{
+								padding: 0,
+								textDecoration: 'underline',
+								border: 'none',
+							}}
+							onClick={() => {
+								setShowSignUpModal(true);
+								closeModal();
+							}}
+						>
 							Register here
-						</Link>
+						</Button>
 					</Typography>
 				</Stack>
 			</Stack>

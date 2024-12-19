@@ -8,8 +8,12 @@ function PrivacyPolicyPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Privacy Page | Rbetrage</title>
-				<meta name="description" content="Privacy page of rbetrage" />
+				<title>Privacy Policy - Rbetrage</title>
+				<meta name="title" content="Privacy Policy - Rbetrage" />
+				<meta
+					name="description"
+					content="Check out the privacy policies of our Rbetrage Dropshipping Automation Software, which mention data collection, usage, security, and subscription services."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/privacy" />
 			</Helmet>

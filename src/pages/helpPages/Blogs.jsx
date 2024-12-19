@@ -109,8 +109,12 @@ function BlogPage() {
 	return (
 		<>
 			<Helmet>
-				<title>Blogs Page | Rbetrage</title>
-				<meta name="description" content="Blog page of rbetrage" />
+				<title>Latest Blogs for Rbetrage Dropshipping Automation Software</title>
+				<meta name="title" content="Latest Blogs for Rbetrage Dropshipping Automation Software" />
+				<meta
+					name="description"
+					content="Check out the latest Rbetrage blogs and updates regarding arbitrage dropshipping software, sales tracking, and trending product research."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/blogs" />
 			</Helmet>

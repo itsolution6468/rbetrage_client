@@ -218,8 +218,12 @@ function HelpPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>How to use Page | Rbetrage</title>
-				<meta name="description" content="Help page of rbetrage" />
+				<title>Rbetrage Uses Help for Dropshipping- Arbitrage Tool</title>
+				<meta name="title" content="Rbetrage Uses Help for Dropshipping- Arbitrage Tool" />
+				<meta
+					name="description"
+					content="Rbetrage helps you to explore trending products by scanning marketplaces for the best prices & filtering results by price, brand, condition, ratings, and location."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/help" />
 			</Helmet>

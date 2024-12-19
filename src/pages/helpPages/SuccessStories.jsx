@@ -45,8 +45,12 @@ function SuccessStoryPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Success Story Page | Rbetrage</title>
-				<meta name="description" content="Dropshipping page of rbetrage" />
+				<title>Success Story - Rbetrage</title>
+				<meta name="title" content="Success Story - Rbetrage" />
+				<meta
+					name="description"
+					content="Alex Nguyen's journey from dropshipping to tech brand success and Sarah Johnson's fitness e-commerce growth with video marketing."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/success_story" />
 			</Helmet>

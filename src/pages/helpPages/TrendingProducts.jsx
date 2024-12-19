@@ -11,8 +11,12 @@ function TrendingProductsHelpPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Trending Products for Dropshipping | Rbetrage</title>
-				<meta name="description" content="Trending products page of rbetrage" />
+				<title>Trending Products Guide for Dropshipping - Rbetrage</title>
+				<meta name="title" content="Trending Products Guide for Dropshipping - Rbetrage" />
+				<meta
+					name="description"
+					content="Check out the trending products guide for dropshipping to know about the best strategy resources and tools to find the trending products for dropshipping."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/trending_products_guide" />
 			</Helmet>

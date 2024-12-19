@@ -47,8 +47,12 @@ function EtsyProductPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Etsy Products Page | Rbetrage</title>
-				<meta name="description" content="Etsy Products page of rbetrage" />
+				<title>Etsy Arbitrage Tool | AI-powered Dropshipping Platform - Rbetrage</title>
+				<meta name="title" content="Etsy Arbitrage Tool | AI-powered Dropshipping Platform - Rbetrage" />
+				<meta
+					name="description"
+					content="Rbetrage is the leading Etsy arbitrage tool or AI automation that helps users find trending or winning products on Etsy."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/products/etsy" />
 			</Helmet>

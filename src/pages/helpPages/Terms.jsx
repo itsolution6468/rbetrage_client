@@ -8,8 +8,12 @@ function TermsPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Terms & Conditions Page | Rbetrage</title>
-				<meta name="description" content="Terms & Conditions page of rbetrage" />
+				<title>Terms and Conditions - Rbetrage</title>
+				<meta name="title" content="Terms and Conditions - Rbetrage" />
+				<meta
+					name="description"
+					content="Check out the Terms and Conditions of Rbetrage Dropshipping Automation Software for seamless collaboration and innovative solutions."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/terms" />
 			</Helmet>

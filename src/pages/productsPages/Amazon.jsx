@@ -44,14 +44,17 @@ function AmazonProductPage() {
 		setPage(value);
 	};
 
-	console.log("amazon", products);
-	
+	console.log('amazon', products);
 
 	return (
 		<Box>
 			<Helmet>
-				<title>Amazon Products Page | Rbetrage</title>
-				<meta name="description" content="Amazon Products page of rbetrage" />
+				<title>Amazon Arbitrage or Dropshipping Automation Software - Rbetrage</title>
+				<meta name="title" content="Amazon Arbitrage or Dropshipping Automation Software - Rbetrage" />
+				<meta
+					name="description"
+					content="Rbetrage is the best Amazon arbitrage or AI-powered dropshipping automation software or tool for finding trending products on Amazon."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/products/amazon" />
 			</Helmet>

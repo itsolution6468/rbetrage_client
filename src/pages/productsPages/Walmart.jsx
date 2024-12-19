@@ -48,8 +48,12 @@ function WalmartProductPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Walmart Products Page | Rbetrage</title>
-				<meta name="description" content="Walmart Products page of rbetrage" />
+				<title>Walmart Arbitrage Tool | Product Research & Sales Estimator - Rbetrage</title>
+				<meta name="title" content="Walmart Arbitrage Tool | Product Research & Sales Estimator - Rbetrage" />
+				<meta
+					name="description"
+					content="Rbetrage is the top Walmart arbitrage tool or AI-powered dropshipping automation software for trending product research and sales tracking."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/products/walmart" />
 			</Helmet>

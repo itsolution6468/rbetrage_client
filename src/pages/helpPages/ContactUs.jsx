@@ -18,8 +18,12 @@ function ContactUsPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Contact Us | Rbetrage</title>
-				<meta name="description" content="Contact us page of rbetrage" />
+				<title>Contact Us - Rbetrage</title>
+				<meta name="title" content="Contact Us - Rbetrage" />
+				<meta
+					name="description"
+					content="If you have any queries regarding the terms and conditions, privacy policy, or are facing problems in using Rbetrage, then feel free to contact us anytime."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/contact_us" />
 			</Helmet>

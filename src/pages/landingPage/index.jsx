@@ -9,8 +9,12 @@ function LandingPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Home Page | Rbetrage</title>
-				<meta name="description" content="Home page of rbetrage" />
+				<title>Rbetrage - Best Arbitrage Software for Dropshipping Automation</title>
+				<meta name="title" content="Rbetrage - Best Arbitrage Software for Dropshipping Automation" />
+				<meta
+					name="description"
+					content="Rbetrage is arbitrage or dropshipping automation software for finding trending and winning products on Amazon, Etsy, Walmart, Alibaba, eBay, and 6th Street."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/" />
 			</Helmet>

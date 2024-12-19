@@ -53,8 +53,12 @@ function StreetProductPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>6th Street Products Page | Rbetrage</title>
-				<meta name="description" content="6th Street Products page of rbetrage" />
+				<title>6th Street Arbitrage Tool to Find Trending Product - Rbetrage</title>
+				<meta name="title" content="6th Street Arbitrage Tool to Find Trending Product - Rbetrage" />
+				<meta
+					name="description"
+					content="Automate the trending product research process using the best 6th Street Arbitrage or Dropshipping Automation Software with Sales Tracking."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/products/6th-street" />
 			</Helmet>

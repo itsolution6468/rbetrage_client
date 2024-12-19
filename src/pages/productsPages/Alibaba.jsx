@@ -53,8 +53,12 @@ function AlibabaProductPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Alibaba Products Page | Rbetrage</title>
-				<meta name="description" content="Alibaba Products page of rbetrage" />
+				<title>Alibaba Arbitrage Tool | Product Research & Sales Tracker - Rbetrage</title>
+				<meta name="title" content="Alibaba Arbitrage Tool | Product Research & Sales Tracker - Rbetrage" />
+				<meta
+					name="description"
+					content="Rbetrage is the best Alibaba arbitrage tool or AI-powered dropshipping automation software for finding trending products and tracking sales."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/products/alibaba" />
 			</Helmet>

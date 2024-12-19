@@ -190,8 +190,12 @@ function DropshippingPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Dropshipping Page | Rbetrage</title>
-				<meta name="description" content="Dropshipping page of rbetrage" />
+				<title>What is Dropshipping, Features & How does it work? Rbetrage</title>
+				<meta name="title" content="What is Dropshipping, Features & How does it work? Rbetrage" />
+				<meta
+					name="description"
+					content="Check out all the information about dropshipping, its features, how it works, how to find suppliers, & how Rbetrage can help you find the best dropshipping products."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/dropshipping" />
 			</Helmet>

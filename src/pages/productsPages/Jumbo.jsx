@@ -53,8 +53,12 @@ function JumboProductPage() {
 	return (
 		<Box>
 			<Helmet>
-				<title>Jumbo Products Page | Rbetrage</title>
-				<meta name="description" content="Jumbo Products page of rbetrage" />
+				<title>Jumbo Arbitrage Tool for Products Research & Sale Tracking - Rbetrage</title>
+				<meta name="title" content="Jumbo Arbitrage Tool for Products Research & Sale Tracking - Rbetrage" />
+				<meta
+					name="description"
+					content="Find the trending products on Jumbo through the best arbitrage or dropshipping automation tool that automates the product research based on categories & price."
+				/>
 
 				<link rel="canonical" href="https://rbetraj.com/products/jumbo" />
 			</Helmet>
